@@ -94,25 +94,34 @@ def _wait_for_limit(resp: requests.Response, request_timeout: int) -> float:
     """How many seconds to sleep for a 403 before retrying.
 
     GitHub returns 403 for two very different cases:
-      * PRIMARY rate limit  — X-RateLimit-Remaining=0; wait until X-RateLimit-Reset.
-      * SECONDARY limit     — abuse detection on bursty clients; sends a
-        `Retry-After` header (seconds) while X-RateLimit-Remaining is still
-        high. Sleeping until X-RateLimit-Reset here is wrong and can stall the
-        run for ~an hour; honor Retry-After instead (capped, never longer than
-        a few minutes).
+
+      * PRIMARY rate limit — X-RateLimit-Remaining=0. The token is genuinely
+        exhausted; wait until X-RateLimit-Reset (this is the only case where a
+        long sleep is warranted).
+
+      * SECONDARY limit / abuse detection — returned against bursty clients
+        (especially GitHub-hosted runners, whose shared egress IPs get
+        throttled by api.github.com). X-RateLimit-Remaining is still high and a
+        `Retry-After` header says how long to wait. Sleeping until
+        X-RateLimit-Reset here is wrong (it can be ~an hour away) and would
+        stall the whole run. Always use a short, bounded wait when the token is
+        not actually exhausted.
     """
     remaining = resp.headers.get("X-RateLimit-Remaining", "?")
+    if str(remaining) == "0":
+        reset_ts = int(resp.headers.get("X-RateLimit-Reset", "0"))
+        if reset_ts:
+            return max(reset_ts - int(time.time()), 0) + 1
+        return 60  # exhausted with no reset header — conservative
+    # secondary/abuse: short bounded waits so the run always keeps moving
     retry_after = resp.headers.get("Retry-After")
-    if retry_after is not None and str(remaining) != "0":
+    if retry_after is not None:
         try:
             wait = float(retry_after)
         except (TypeError, ValueError):
-            wait = 30
-        return min(max(wait + 1, 1), 300)  # cap at 5 min
-    reset_ts = int(resp.headers.get("X-RateLimit-Reset", "0"))
-    if reset_ts:
-        return max(reset_ts - int(time.time()), 0) + 1
-    return 30
+            wait = 10
+        return min(max(wait + 1, 1), 60)
+    return 10
 
 
 def api_get(session: requests.Session, url: str, base, **kwargs) -> Dict[str, Any]:

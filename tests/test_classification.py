@@ -967,24 +967,28 @@ class _FakeResp:
 
 
 def test_rate_limit_wait_handles_secondary_vs_primary():
-    """403 handling: honor Retry-After for secondary limits (still-high
-    remaining) instead of stalling until X-RateLimit-Reset; sleep until reset
-    only for a genuine primary limit (remaining=0)."""
+    """403 handling: secondary limits (still-high remaining) always use short,
+    bounded waits; only a genuine primary limit (remaining=0) sleeps toward the
+    reset timestamp."""
     import collect
 
     # secondary / abuse detection: GET after GET bursts -> short wait
     r = _FakeResp({"X-RateLimit-Remaining": "4992", "Retry-After": "3", "X-RateLimit-Reset": "9999999999"})
-    assert collect._wait_for_limit(r, 30) == 4  # Retry-After + 1, not reset-based
-    # Retry-After is capped (never sleeps for an hour on abuse detection)
+    assert collect._wait_for_limit(r, 30) == 4  # Retry-After + 1, NEVER reset-based
+    # even a huge Retry-After is capped so the run keeps moving
     r = _FakeResp({"X-RateLimit-Remaining": "4123", "Retry-After": "9000"})
-    assert collect._wait_for_limit(r, 30) <= 300
+    assert collect._wait_for_limit(r, 30) == 60
+    # 403 abuse WITHOUT Retry-After, token still fine -> short default, not ~1h
+    r = _FakeResp({"X-RateLimit-Remaining": "4990", "X-RateLimit-Reset": "9999999999"})
+    assert collect._wait_for_limit(r, 30) <= 10
     # primary limit exhausted -> wait until the reset timestamp
     from datetime import datetime as _dt, timezone as _tz
     import time as _time
     soon = int(_time.time()) + 60
     r = _FakeResp({"X-RateLimit-Remaining": "0", "X-RateLimit-Reset": str(soon)})
     assert 59 <= collect._wait_for_limit(r, 30) <= 61
-    # no useful headers -> conservative short default
-    assert collect._wait_for_limit(_FakeResp({}), 30) == 30
+    # exhausted but no reset header -> conservative bound
+    assert collect._wait_for_limit(_FakeResp({"X-RateLimit-Remaining": "0"}), 30) == 60
+
 
 
