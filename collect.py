@@ -134,16 +134,27 @@ def api_get(session: requests.Session, url: str, base, **kwargs) -> Dict[str, An
             _throttle(base)
             return resp.json()
         if resp.status_code == 403:
-            # primary rate limit OR secondary/abuse detection
+            # primary rate limit OR secondary/abuse detection OR token-permission
             remaining = resp.headers.get("X-RateLimit-Remaining", "?")
             wait = _wait_for_limit(resp, base["request_timeout_seconds"])
+            # Surface GitHub's reason so permission/scope 403s are diagnosable
+            # (a quota 403 would show remaining=0; a scope 403 keeps remaining
+            # high and needs a different token, not a sleep).
+            reason = ""
+            try:
+                body = resp.json()
+                if isinstance(body, dict):
+                    reason = str(body.get("message", ""))[:160]
+            except Exception:
+                pass
             # Only consume the retry budget for rate-limit, not auth failure.
             if attempts > base["max_retries"]:
                 raise ApiError(
                     f"rate limited / forbidden after {attempts} tries "
-                    f"(remaining={remaining}); sleeping {wait}s next is not enough — abort"
+                    f"(remaining={remaining}){('; ' + reason) if reason else ''} — abort"
                 )
-            print(f"   [rate-limit] remaining={remaining}; retry in {wait}s", file=sys.stderr)
+            print(f"   [rate-limit] remaining={remaining}; retry in {wait}s{('; ' + reason) if reason else ''}",
+                  file=sys.stderr)
             time.sleep(wait)
             continue
         if resp.status_code in (429, 500, 502, 503, 504):
