@@ -1,14 +1,14 @@
 {
   "meta": {
-    "collected_at": "2026-08-25T17:53:45+00:00",
-    "cohort_start": "2026-02-01T00:00:00Z",
+    "collected_at": "2026-08-27T14:07:31+00:00",
+    "cohort_start": "2026-07-01T00:00:00Z",
     "cohort_end": "2026-08-01T00:00:00Z",
     "cohort_source": "snapshot",
-    "excluded_issues": 327,
-    "excluded_by_creator": 217,
-    "excluded_by_label": 29,
-    "excluded_by_repo": 37,
-    "excluded_by_team": 44,
+    "excluded_issues": 15,
+    "excluded_by_creator": 13,
+    "excluded_by_label": 0,
+    "excluded_by_repo": 0,
+    "excluded_by_team": 2,
     "excluded_creators": [
       "adguard-bot",
       "adguard-octobuddy[bot]"
@@ -16,317 +16,58 @@
     "excluded_labels": [
       "spam"
     ],
-    "exclude_repo_before": {
-      "AdguardTeam/AdGuardMiniForMac": "2026-07-07"
-    }
+    "exclude_repo_before": {}
   },
   "summary": {
-    "issues_in_cohort": 809,
-    "ownership_intervals": 835,
-    "completed_intervals": 821,
-    "active_intervals": 14,
-    "handed_off_to_development": 205,
-    "resolved_by_triager": 510,
+    "issues_in_cohort": 58,
+    "ownership_intervals": 63,
+    "completed_intervals": 60,
+    "active_intervals": 3,
+    "handed_off_to_development": 16,
+    "resolved_by_triager": 36,
     "spam_or_invalid": 0,
-    "older_than_72h": 14,
-    "older_than_48h": 14,
-    "excluded_issues": 327,
-    "excluded_by_creator": 217,
-    "excluded_by_label": 29,
-    "excluded_by_repo": 37,
-    "excluded_by_team": 44,
+    "older_than_72h": 3,
+    "older_than_48h": 3,
+    "excluded_issues": 15,
+    "excluded_by_creator": 13,
+    "excluded_by_label": 0,
+    "excluded_by_repo": 0,
+    "excluded_by_team": 2,
     "months": [
-      "2026-02",
-      "2026-03",
-      "2026-04",
-      "2026-05",
-      "2026-06",
       "2026-07"
     ],
     "sample_buckets": {
-      "2026-02": "2026-02",
-      "2026-03": "2026-03",
-      "2026-04": "2026-04",
-      "2026-05": "2026-05",
-      "2026-06": "2026-06",
       "2026-07": "2026-07"
     }
   },
   "workload": {
     "AlexandrPkhm": {
-      "2026-02": {
-        "handled": 14,
-        "completed": 14,
-        "resolved_by_triager": 12,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 1
-      },
-      "2026-03": {
-        "handled": 43,
-        "completed": 43,
-        "resolved_by_triager": 26,
-        "handed_off_to_development": 11,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 5
-      },
-      "2026-04": {
-        "handled": 23,
-        "completed": 23,
-        "resolved_by_triager": 21,
-        "handed_off_to_development": 2,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 28,
-        "completed": 27,
-        "resolved_by_triager": 16,
-        "handed_off_to_development": 4,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 6
-      },
-      "2026-06": {
-        "handled": 19,
-        "completed": 19,
-        "resolved_by_triager": 12,
-        "handed_off_to_development": 3,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 4
-      },
       "2026-07": {
-        "handled": 25,
-        "completed": 23,
-        "resolved_by_triager": 12,
-        "handed_off_to_development": 8,
-        "spam_or_invalid": 0,
-        "handoffs_received": 4,
-        "handoffs_made": 3
-      }
-    },
-    "ESurina": {
-      "2026-02": {
-        "handled": 7,
-        "completed": 7,
-        "resolved_by_triager": 5,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 10,
-        "completed": 10,
-        "resolved_by_triager": 5,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 8,
-        "completed": 8,
-        "resolved_by_triager": 5,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 6,
-        "completed": 6,
-        "resolved_by_triager": 4,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-06": {
-        "handled": 5,
-        "completed": 5,
-        "resolved_by_triager": 4,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-07": {
-        "handled": 3,
-        "completed": 3,
-        "resolved_by_triager": 2,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      }
-    },
-    "IaroslavKhvorostenko": {
-      "2026-02": {
-        "handled": 7,
-        "completed": 7,
-        "resolved_by_triager": 4,
-        "handed_off_to_development": 3,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 14,
-        "completed": 14,
+        "handled": 13,
+        "completed": 12,
         "resolved_by_triager": 6,
-        "handed_off_to_development": 8,
-        "spam_or_invalid": 0,
-        "handoffs_received": 3,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 22,
-        "completed": 22,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 14,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 2
-      },
-      "2026-05": {
-        "handled": 10,
-        "completed": 10,
-        "resolved_by_triager": 3,
         "handed_off_to_development": 5,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
-        "handoffs_made": 2
-      },
-      "2026-06": {
-        "handled": 9,
-        "completed": 9,
-        "resolved_by_triager": 5,
-        "handed_off_to_development": 4,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-07": {
-        "handled": 14,
-        "completed": 14,
-        "resolved_by_triager": 4,
-        "handed_off_to_development": 8,
-        "spam_or_invalid": 0,
-        "handoffs_received": 4,
-        "handoffs_made": 2
+        "handoffs_made": 1
       }
     },
     "KolbasovAnton": {
-      "2026-02": {
-        "handled": 10,
+      "2026-07": {
+        "handled": 11,
         "completed": 10,
         "resolved_by_triager": 5,
-        "handed_off_to_development": 5,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 22,
-        "completed": 22,
-        "resolved_by_triager": 9,
-        "handed_off_to_development": 10,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 3
-      },
-      "2026-04": {
-        "handled": 20,
-        "completed": 20,
-        "resolved_by_triager": 8,
-        "handed_off_to_development": 9,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-05": {
-        "handled": 16,
-        "completed": 16,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 10,
-        "spam_or_invalid": 0,
-        "handoffs_received": 4,
-        "handoffs_made": 0
-      },
-      "2026-06": {
-        "handled": 17,
-        "completed": 16,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 10,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 0
-      },
-      "2026-07": {
-        "handled": 14,
-        "completed": 13,
-        "resolved_by_triager": 7,
         "handed_off_to_development": 4,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
-        "handoffs_made": 2
+        "handoffs_made": 1
       }
     },
     "Swen90": {
-      "2026-02": {
-        "handled": 3,
-        "completed": 3,
-        "resolved_by_triager": 2,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 3,
-        "completed": 3,
-        "resolved_by_triager": 2,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 7,
-        "completed": 7,
-        "resolved_by_triager": 7,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 7,
-        "completed": 7,
-        "resolved_by_triager": 3,
-        "handed_off_to_development": 3,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-06": {
+      "2026-07": {
         "handled": 3,
         "completed": 2,
-        "resolved_by_triager": 0,
-        "handed_off_to_development": 2,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-07": {
-        "handled": 5,
-        "completed": 4,
-        "resolved_by_triager": 3,
+        "resolved_by_triager": 1,
         "handed_off_to_development": 0,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
@@ -334,163 +75,28 @@
       }
     },
     "dmitriivqa39": {
-      "2026-02": {
-        "handled": 25,
-        "completed": 25,
-        "resolved_by_triager": 20,
-        "handed_off_to_development": 4,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-03": {
-        "handled": 33,
-        "completed": 33,
-        "resolved_by_triager": 29,
-        "handed_off_to_development": 4,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 21,
-        "completed": 21,
-        "resolved_by_triager": 16,
+      "2026-07": {
+        "handled": 12,
+        "completed": 12,
+        "resolved_by_triager": 7,
         "handed_off_to_development": 5,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
         "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 30,
-        "completed": 30,
-        "resolved_by_triager": 16,
-        "handed_off_to_development": 12,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-06": {
-        "handled": 42,
-        "completed": 42,
-        "resolved_by_triager": 28,
-        "handed_off_to_development": 13,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-07": {
-        "handled": 18,
-        "completed": 18,
-        "resolved_by_triager": 9,
-        "handed_off_to_development": 8,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 1
       }
     },
     "maxikuzmin": {
-      "2026-02": {
-        "handled": 9,
-        "completed": 9,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-03": {
-        "handled": 16,
-        "completed": 16,
-        "resolved_by_triager": 12,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 1
-      },
-      "2026-04": {
-        "handled": 19,
-        "completed": 19,
-        "resolved_by_triager": 14,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 22,
-        "completed": 22,
-        "resolved_by_triager": 18,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-06": {
-        "handled": 25,
-        "completed": 25,
-        "resolved_by_triager": 17,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
       "2026-07": {
-        "handled": 33,
-        "completed": 32,
-        "resolved_by_triager": 27,
-        "handed_off_to_development": 1,
+        "handled": 11,
+        "completed": 11,
+        "resolved_by_triager": 9,
+        "handed_off_to_development": 0,
         "spam_or_invalid": 0,
-        "handoffs_received": 1,
+        "handoffs_received": 0,
         "handoffs_made": 0
       }
     },
     "oksenina": {
-      "2026-02": {
-        "handled": 8,
-        "completed": 7,
-        "resolved_by_triager": 2,
-        "handed_off_to_development": 1,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 14,
-        "completed": 14,
-        "resolved_by_triager": 11,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 21,
-        "completed": 19,
-        "resolved_by_triager": 11,
-        "handed_off_to_development": 3,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 2
-      },
-      "2026-05": {
-        "handled": 8,
-        "completed": 7,
-        "resolved_by_triager": 2,
-        "handed_off_to_development": 2,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-06": {
-        "handled": 10,
-        "completed": 8,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
       "2026-07": {
         "handled": 3,
         "completed": 3,
@@ -502,407 +108,64 @@
       }
     },
     "pakifev": {
-      "2026-02": {
-        "handled": 0,
-        "completed": 0,
-        "resolved_by_triager": 0,
-        "handed_off_to_development": 0,
-        "spam_or_invalid": 0,
-        "handoffs_received": 0,
-        "handoffs_made": 0
-      },
-      "2026-03": {
-        "handled": 12,
-        "completed": 12,
-        "resolved_by_triager": 8,
+      "2026-07": {
+        "handled": 10,
+        "completed": 10,
+        "resolved_by_triager": 5,
         "handed_off_to_development": 2,
         "spam_or_invalid": 0,
         "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-04": {
-        "handled": 18,
-        "completed": 18,
-        "resolved_by_triager": 12,
-        "handed_off_to_development": 6,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-05": {
-        "handled": 19,
-        "completed": 19,
-        "resolved_by_triager": 13,
-        "handed_off_to_development": 6,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-06": {
-        "handled": 17,
-        "completed": 17,
-        "resolved_by_triager": 11,
-        "handed_off_to_development": 6,
-        "spam_or_invalid": 0,
-        "handoffs_received": 1,
-        "handoffs_made": 0
-      },
-      "2026-07": {
-        "handled": 18,
-        "completed": 18,
-        "resolved_by_triager": 9,
-        "handed_off_to_development": 4,
-        "spam_or_invalid": 0,
-        "handoffs_received": 2,
-        "handoffs_made": 5
+        "handoffs_made": 3
       }
     }
   },
   "cycle_time": {
     "AlexandrPkhm": {
-      "2026-02": {
-        "avg_h": 125.468,
-        "median_h": 82.99333333333334,
-        "p75_h": 215.95583333333335,
-        "p90_h": 292.08472222222224,
-        "count": 14
-      },
-      "2026-03": {
-        "avg_h": 111.6,
-        "median_h": 38.943888888888885,
-        "p75_h": 92.99555555555555,
-        "p90_h": 353.3836111111111,
-        "count": 43
-      },
-      "2026-04": {
-        "avg_h": 69.711,
-        "median_h": 21.610277777777778,
-        "p75_h": 72.26194444444444,
-        "p90_h": 177.21833333333333,
-        "count": 23
-      },
-      "2026-05": {
-        "avg_h": 205.837,
-        "median_h": 60.091944444444444,
-        "p75_h": 120.48972222222223,
-        "p90_h": 395.9711111111111,
-        "count": 27
-      },
-      "2026-06": {
-        "avg_h": 122.168,
-        "median_h": 49.00472222222222,
-        "p75_h": 109.26611111111112,
-        "p90_h": 288.2425,
-        "count": 19
-      },
       "2026-07": {
-        "avg_h": 100.628,
-        "median_h": 63.54333333333334,
-        "p75_h": 96.97666666666667,
+        "avg_h": 120.11,
+        "median_h": 83.38319444444446,
+        "p75_h": 198.8661111111111,
         "p90_h": 258.7525,
-        "count": 23
-      }
-    },
-    "ESurina": {
-      "2026-02": {
-        "avg_h": 788.181,
-        "median_h": 381.6172222222222,
-        "p75_h": 456.46694444444444,
-        "p90_h": 476.05333333333334,
-        "count": 7
-      },
-      "2026-03": {
-        "avg_h": 717.739,
-        "median_h": 142.78972222222222,
-        "p75_h": 788.7375,
-        "p90_h": 1340.026111111111,
-        "count": 10
-      },
-      "2026-04": {
-        "avg_h": 384.105,
-        "median_h": 190.35694444444445,
-        "p75_h": 548.4688888888888,
-        "p90_h": 833.2669444444444,
-        "count": 8
-      },
-      "2026-05": {
-        "avg_h": 682.169,
-        "median_h": 430.3941666666667,
-        "p75_h": 1169.085,
-        "p90_h": 1169.085,
-        "count": 6
-      },
-      "2026-06": {
-        "avg_h": 831.824,
-        "median_h": 426.97583333333336,
-        "p75_h": 1753.6425,
-        "p90_h": 1848.7383333333332,
-        "count": 5
-      },
-      "2026-07": {
-        "avg_h": 539.21,
-        "median_h": 628.3783333333333,
-        "p75_h": 628.3783333333333,
-        "p90_h": 989.1769444444444,
-        "count": 3
-      }
-    },
-    "IaroslavKhvorostenko": {
-      "2026-02": {
-        "avg_h": 168.162,
-        "median_h": 28.016666666666666,
-        "p75_h": 78.09944444444444,
-        "p90_h": 410.9869444444444,
-        "count": 7
-      },
-      "2026-03": {
-        "avg_h": 196.665,
-        "median_h": 24.094722222222224,
-        "p75_h": 80.52833333333334,
-        "p90_h": 166.92333333333335,
-        "count": 14
-      },
-      "2026-04": {
-        "avg_h": 76.93,
-        "median_h": 21.007083333333334,
-        "p75_h": 97.00611111111111,
-        "p90_h": 192.14888888888888,
-        "count": 22
-      },
-      "2026-05": {
-        "avg_h": 81.459,
-        "median_h": 38.309305555555554,
-        "p75_h": 97.56027777777778,
-        "p90_h": 267.08916666666664,
-        "count": 10
-      },
-      "2026-06": {
-        "avg_h": 165.897,
-        "median_h": 100.26555555555555,
-        "p75_h": 311.2361111111111,
-        "p90_h": 316.80083333333334,
-        "count": 9
-      },
-      "2026-07": {
-        "avg_h": 86.752,
-        "median_h": 24.801111111111112,
-        "p75_h": 168.13777777777779,
-        "p90_h": 269.54,
-        "count": 14
+        "count": 12
       }
     },
     "KolbasovAnton": {
-      "2026-02": {
-        "avg_h": 122.342,
-        "median_h": 61.810833333333335,
-        "p75_h": 100.26305555555555,
-        "p90_h": 176.57222222222222,
-        "count": 10
-      },
-      "2026-03": {
-        "avg_h": 299.362,
-        "median_h": 214.16069444444446,
-        "p75_h": 528.4119444444444,
-        "p90_h": 653.5166666666667,
-        "count": 22
-      },
-      "2026-04": {
-        "avg_h": 49.549,
-        "median_h": 9.265416666666667,
-        "p75_h": 73.76166666666667,
-        "p90_h": 142.5613888888889,
-        "count": 20
-      },
-      "2026-05": {
-        "avg_h": 254.104,
-        "median_h": 58.693472222222226,
-        "p75_h": 191.29527777777778,
-        "p90_h": 535.8888888888889,
-        "count": 16
-      },
-      "2026-06": {
-        "avg_h": 125.69,
-        "median_h": 28.69736111111111,
-        "p75_h": 195.035,
-        "p90_h": 341.3277777777778,
-        "count": 16
-      },
       "2026-07": {
-        "avg_h": 87.698,
-        "median_h": 72.36138888888888,
-        "p75_h": 165.01444444444445,
-        "p90_h": 176.285,
-        "count": 13
+        "avg_h": 77.674,
+        "median_h": 52.20152777777777,
+        "p75_h": 82.41444444444444,
+        "p90_h": 168.12916666666666,
+        "count": 10
       }
     },
     "Swen90": {
-      "2026-02": {
-        "avg_h": 454.265,
-        "median_h": 264.7941666666667,
-        "p75_h": 264.7941666666667,
-        "p90_h": 834.24,
-        "count": 3
-      },
-      "2026-03": {
-        "avg_h": 689.566,
-        "median_h": 699.5611111111111,
-        "p75_h": 699.5611111111111,
-        "p90_h": 837.5461111111111,
-        "count": 3
-      },
-      "2026-04": {
-        "avg_h": 347.586,
-        "median_h": 203.94972222222222,
-        "p75_h": 408.58166666666665,
-        "p90_h": 624.0055555555556,
-        "count": 7
-      },
-      "2026-05": {
-        "avg_h": 639.085,
-        "median_h": 313.82944444444445,
-        "p75_h": 1152.8675,
-        "p90_h": 1152.9441666666667,
-        "count": 7
-      },
-      "2026-06": {
-        "avg_h": 982.981,
-        "median_h": 982.9811111111112,
-        "p75_h": 1009.2555555555556,
-        "p90_h": 1009.2555555555556,
-        "count": 2
-      },
       "2026-07": {
-        "avg_h": 332.609,
-        "median_h": 335.78930555555553,
-        "p75_h": 458.9761111111111,
+        "avg_h": 420.831,
+        "median_h": 420.8306944444444,
+        "p75_h": 629.0588888888889,
         "p90_h": 629.0588888888889,
-        "count": 4
+        "count": 2
       }
     },
     "dmitriivqa39": {
-      "2026-02": {
-        "avg_h": 88.991,
-        "median_h": 61.79,
-        "p75_h": 115.40055555555556,
-        "p90_h": 274.41,
-        "count": 25
-      },
-      "2026-03": {
-        "avg_h": 59.966,
-        "median_h": 28.730833333333333,
-        "p75_h": 66.82166666666667,
-        "p90_h": 200.26944444444445,
-        "count": 33
-      },
-      "2026-04": {
-        "avg_h": 76.834,
-        "median_h": 17.439444444444444,
-        "p75_h": 51.45638888888889,
-        "p90_h": 181.27805555555557,
-        "count": 21
-      },
-      "2026-05": {
-        "avg_h": 34.173,
-        "median_h": 13.536805555555556,
-        "p75_h": 48.83166666666666,
-        "p90_h": 81.65305555555555,
-        "count": 30
-      },
-      "2026-06": {
-        "avg_h": 26.09,
-        "median_h": 5.4,
-        "p75_h": 23.873333333333335,
-        "p90_h": 54.270833333333336,
-        "count": 42
-      },
       "2026-07": {
-        "avg_h": 40.979,
-        "median_h": 11.560555555555556,
-        "p75_h": 40.19361111111111,
+        "avg_h": 36.538,
+        "median_h": 12.606805555555557,
+        "p75_h": 35.263888888888886,
         "p90_h": 78.20055555555555,
-        "count": 18
+        "count": 12
       }
     },
     "maxikuzmin": {
-      "2026-02": {
-        "avg_h": 211.211,
-        "median_h": 18.2875,
-        "p75_h": 186.81722222222223,
-        "p90_h": 307.1561111111111,
-        "count": 9
-      },
-      "2026-03": {
-        "avg_h": 137.545,
-        "median_h": 98.56222222222223,
-        "p75_h": 173.98583333333335,
-        "p90_h": 235.58388888888888,
-        "count": 16
-      },
-      "2026-04": {
-        "avg_h": 250.04,
-        "median_h": 81.92583333333333,
-        "p75_h": 241.92638888888888,
-        "p90_h": 500.8802777777778,
-        "count": 19
-      },
-      "2026-05": {
-        "avg_h": 157.596,
-        "median_h": 89.25486111111111,
-        "p75_h": 165.78277777777777,
-        "p90_h": 362.1188888888889,
-        "count": 22
-      },
-      "2026-06": {
-        "avg_h": 187.448,
-        "median_h": 87.87722222222222,
-        "p75_h": 278.6736111111111,
-        "p90_h": 479.5836111111111,
-        "count": 25
-      },
       "2026-07": {
-        "avg_h": 134.96,
-        "median_h": 73.96555555555555,
-        "p75_h": 187.4561111111111,
-        "p90_h": 379.1952777777778,
-        "count": 32
+        "avg_h": 125.477,
+        "median_h": 109.84472222222222,
+        "p75_h": 118.635,
+        "p90_h": 247.04333333333332,
+        "count": 11
       }
     },
     "oksenina": {
-      "2026-02": {
-        "avg_h": 275.639,
-        "median_h": 318.3102777777778,
-        "p75_h": 408.2338888888889,
-        "p90_h": 415.56333333333333,
-        "count": 7
-      },
-      "2026-03": {
-        "avg_h": 511.286,
-        "median_h": 366.35791666666665,
-        "p75_h": 601.3208333333333,
-        "p90_h": 1223.6,
-        "count": 14
-      },
-      "2026-04": {
-        "avg_h": 476.863,
-        "median_h": 136.90083333333334,
-        "p75_h": 346.9838888888889,
-        "p90_h": 891.0444444444445,
-        "count": 19
-      },
-      "2026-05": {
-        "avg_h": 990.439,
-        "median_h": 504.6747222222222,
-        "p75_h": 839.7588888888889,
-        "p90_h": 2278.8669444444445,
-        "count": 7
-      },
-      "2026-06": {
-        "avg_h": 740.448,
-        "median_h": 583.4913888888889,
-        "p75_h": 1205.183611111111,
-        "p90_h": 1416.0755555555556,
-        "count": 8
-      },
       "2026-07": {
         "avg_h": 183.421,
         "median_h": 184.62944444444443,
@@ -912,219 +175,26 @@
       }
     },
     "pakifev": {
-      "2026-02": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-03": {
-        "avg_h": 110.382,
-        "median_h": 76.02430555555556,
-        "p75_h": 160.6436111111111,
-        "p90_h": 280.7655555555556,
-        "count": 12
-      },
-      "2026-04": {
-        "avg_h": 145.557,
-        "median_h": 97.2223611111111,
-        "p75_h": 169.39694444444444,
-        "p90_h": 363.5755555555556,
-        "count": 18
-      },
-      "2026-05": {
-        "avg_h": 195.929,
-        "median_h": 145.74416666666667,
-        "p75_h": 342.75666666666666,
-        "p90_h": 413.7452777777778,
-        "count": 19
-      },
-      "2026-06": {
-        "avg_h": 131.889,
-        "median_h": 71.9,
-        "p75_h": 168.06083333333333,
-        "p90_h": 264.27194444444444,
-        "count": 17
-      },
       "2026-07": {
-        "avg_h": 94.222,
-        "median_h": 62.08763888888889,
-        "p75_h": 172.09166666666667,
+        "avg_h": 114.1,
+        "median_h": 76.60138888888889,
+        "p75_h": 174.9322222222222,
         "p90_h": 246.02833333333334,
-        "count": 18
+        "count": 10
       }
     }
   },
   "dev_handoff_time": {
     "AlexandrPkhm": {
-      "2026-02": {
-        "avg_h": 66.81,
-        "median_h": 66.81027777777778,
-        "p75_h": 66.81027777777778,
-        "p90_h": 66.81027777777778,
-        "count": 1
-      },
-      "2026-03": {
-        "avg_h": 103.432,
-        "median_h": 52.97638888888889,
-        "p75_h": 71.5338888888889,
-        "p90_h": 353.3836111111111,
-        "count": 11
-      },
-      "2026-04": {
-        "avg_h": 42.266,
-        "median_h": 42.26597222222222,
-        "p75_h": 70.0075,
-        "p90_h": 70.0075,
-        "count": 2
-      },
-      "2026-05": {
-        "avg_h": 437.432,
-        "median_h": 66.42069444444445,
-        "p75_h": 102.85694444444445,
-        "p90_h": 1605.0541666666666,
-        "count": 4
-      },
-      "2026-06": {
-        "avg_h": 1.331,
-        "median_h": 1.4177777777777778,
-        "p75_h": 1.4177777777777778,
-        "p90_h": 1.771111111111111,
-        "count": 3
-      },
       "2026-07": {
-        "avg_h": 100.987,
-        "median_h": 75.43194444444444,
-        "p75_h": 81.47083333333333,
-        "p90_h": 123.22722222222222,
-        "count": 8
-      }
-    },
-    "ESurina": {
-      "2026-02": {
-        "avg_h": 4080.446,
-        "median_h": 4080.446388888889,
-        "p75_h": 4080.446388888889,
-        "p90_h": 4080.446388888889,
-        "count": 1
-      },
-      "2026-03": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-04": {
-        "avg_h": 163.246,
-        "median_h": 163.24555555555557,
-        "p75_h": 163.24555555555557,
-        "p90_h": 163.24555555555557,
-        "count": 1
-      },
-      "2026-05": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-06": {
-        "avg_h": 1753.642,
-        "median_h": 1753.6425,
-        "p75_h": 1753.6425,
-        "p90_h": 1753.6425,
-        "count": 1
-      },
-      "2026-07": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      }
-    },
-    "IaroslavKhvorostenko": {
-      "2026-02": {
-        "avg_h": 218.291,
-        "median_h": 3.2333333333333334,
-        "p75_h": 3.2333333333333334,
-        "p90_h": 648.6647222222222,
-        "count": 3
-      },
-      "2026-03": {
-        "avg_h": 23.21,
-        "median_h": 10.74763888888889,
-        "p75_h": 29.975,
-        "p90_h": 49.132777777777775,
-        "count": 8
-      },
-      "2026-04": {
-        "avg_h": 47.729,
-        "median_h": 21.007083333333334,
-        "p75_h": 72.04666666666667,
-        "p90_h": 191.45944444444444,
-        "count": 14
-      },
-      "2026-05": {
-        "avg_h": 36.447,
-        "median_h": 25.335277777777776,
-        "p75_h": 51.28333333333333,
-        "p90_h": 97.56027777777778,
+        "avg_h": 118.216,
+        "median_h": 69.78972222222222,
+        "p75_h": 123.22722222222222,
+        "p90_h": 280.885,
         "count": 5
-      },
-      "2026-06": {
-        "avg_h": 91.217,
-        "median_h": 23.626111111111108,
-        "p75_h": 24.70611111111111,
-        "p90_h": 316.80083333333334,
-        "count": 4
-      },
-      "2026-07": {
-        "avg_h": 65.977,
-        "median_h": 24.801111111111112,
-        "p75_h": 32.1925,
-        "p90_h": 92.09333333333333,
-        "count": 8
       }
     },
     "KolbasovAnton": {
-      "2026-02": {
-        "avg_h": 164.21,
-        "median_h": 24.256944444444443,
-        "p75_h": 100.26305555555555,
-        "p90_h": 670.2477777777777,
-        "count": 5
-      },
-      "2026-03": {
-        "avg_h": 261.64,
-        "median_h": 153.81347222222223,
-        "p75_h": 486.3547222222222,
-        "p90_h": 653.5166666666667,
-        "count": 10
-      },
-      "2026-04": {
-        "avg_h": 38.533,
-        "median_h": 8.355833333333333,
-        "p75_h": 29.715833333333332,
-        "p90_h": 103.04194444444444,
-        "count": 9
-      },
-      "2026-05": {
-        "avg_h": 263.825,
-        "median_h": 40.88708333333334,
-        "p75_h": 191.29527777777778,
-        "p90_h": 296.79277777777776,
-        "count": 10
-      },
-      "2026-06": {
-        "avg_h": 156.44,
-        "median_h": 80.92833333333333,
-        "p75_h": 341.3277777777778,
-        "p90_h": 411.7086111111111,
-        "count": 10
-      },
       "2026-07": {
         "avg_h": 14.626,
         "median_h": 13.024999999999999,
@@ -1134,41 +204,6 @@
       }
     },
     "Swen90": {
-      "2026-02": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-03": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-04": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-05": {
-        "avg_h": 1152.924,
-        "median_h": 1152.9441666666667,
-        "p75_h": 1152.9441666666667,
-        "p90_h": 1152.961388888889,
-        "count": 3
-      },
-      "2026-06": {
-        "avg_h": 982.981,
-        "median_h": 982.9811111111112,
-        "p75_h": 1009.2555555555556,
-        "p90_h": 1009.2555555555556,
-        "count": 2
-      },
       "2026-07": {
         "avg_h": null,
         "median_h": null,
@@ -1178,129 +213,24 @@
       }
     },
     "dmitriivqa39": {
-      "2026-02": {
-        "avg_h": 64.755,
-        "median_h": 71.69777777777777,
-        "p75_h": 96.95472222222222,
-        "p90_h": 115.40055555555556,
-        "count": 4
-      },
-      "2026-03": {
-        "avg_h": 41.53,
-        "median_h": 42.08277777777778,
-        "p75_h": 53.78666666666667,
-        "p90_h": 72.19611111111111,
-        "count": 4
-      },
-      "2026-04": {
-        "avg_h": 162.518,
-        "median_h": 13.460277777777778,
-        "p75_h": 17.610277777777778,
-        "p90_h": 780.6663888888888,
-        "count": 5
-      },
-      "2026-05": {
-        "avg_h": 23.778,
-        "median_h": 9.61486111111111,
-        "p75_h": 43.468333333333334,
-        "p90_h": 67.07972222222222,
-        "count": 12
-      },
-      "2026-06": {
-        "avg_h": 21.402,
-        "median_h": 9.079444444444444,
-        "p75_h": 47.144444444444446,
-        "p90_h": 54.270833333333336,
-        "count": 13
-      },
       "2026-07": {
-        "avg_h": 9.242,
-        "median_h": 6.812083333333334,
-        "p75_h": 11.081388888888888,
-        "p90_h": 13.17388888888889,
-        "count": 8
+        "avg_h": 13.519,
+        "median_h": 11.081388888888888,
+        "p75_h": 13.17388888888889,
+        "p90_h": 35.263888888888886,
+        "count": 5
       }
     },
     "maxikuzmin": {
-      "2026-02": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-03": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-04": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-05": {
-        "avg_h": 870.787,
-        "median_h": 870.7872222222222,
-        "p75_h": 870.7872222222222,
-        "p90_h": 870.7872222222222,
-        "count": 1
-      },
-      "2026-06": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
       "2026-07": {
-        "avg_h": 0.003,
-        "median_h": 0.0033333333333333335,
-        "p75_h": 0.0033333333333333335,
-        "p90_h": 0.0033333333333333335,
-        "count": 1
+        "avg_h": null,
+        "median_h": null,
+        "p75_h": null,
+        "p90_h": null,
+        "count": 0
       }
     },
     "oksenina": {
-      "2026-02": {
-        "avg_h": 408.234,
-        "median_h": 408.2338888888889,
-        "p75_h": 408.2338888888889,
-        "p90_h": 408.2338888888889,
-        "count": 1
-      },
-      "2026-03": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-04": {
-        "avg_h": 1073.58,
-        "median_h": 346.9838888888889,
-        "p75_h": 346.9838888888889,
-        "p90_h": 2710.6869444444446,
-        "count": 3
-      },
-      "2026-05": {
-        "avg_h": 2307.162,
-        "median_h": 2307.1620833333336,
-        "p75_h": 2335.4572222222223,
-        "p90_h": 2335.4572222222223,
-        "count": 2
-      },
-      "2026-06": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
       "2026-07": {
         "avg_h": null,
         "median_h": null,
@@ -1310,77 +240,40 @@
       }
     },
     "pakifev": {
-      "2026-02": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
-      },
-      "2026-03": {
-        "avg_h": 63.243,
-        "median_h": 63.24277777777778,
-        "p75_h": 123.34527777777778,
-        "p90_h": 123.34527777777778,
-        "count": 2
-      },
-      "2026-04": {
-        "avg_h": 132.781,
-        "median_h": 99.19527777777778,
-        "p75_h": 127.11972222222222,
-        "p90_h": 127.11972222222222,
-        "count": 6
-      },
-      "2026-05": {
-        "avg_h": 216.245,
-        "median_h": 173.21263888888888,
-        "p75_h": 408.67555555555555,
-        "p90_h": 408.67555555555555,
-        "count": 6
-      },
-      "2026-06": {
-        "avg_h": 85.456,
-        "median_h": 61.23236111111112,
-        "p75_h": 167.63416666666666,
-        "p90_h": 167.63416666666666,
-        "count": 6
-      },
       "2026-07": {
-        "avg_h": 87.211,
-        "median_h": 50.56986111111111,
-        "p75_h": 75.36111111111111,
+        "avg_h": 160.695,
+        "median_h": 160.69472222222223,
+        "p75_h": 246.02833333333334,
         "p90_h": 246.02833333333334,
-        "count": 4
+        "count": 2
       }
     }
   },
   "dev_handoff_from_first_assignment": {
-    "avg_h": 203.65,
-    "median_h": 43.468333333333334,
-    "p75_h": 135.74055555555555,
-    "p90_h": 461.45722222222224,
-    "count": 205
+    "avg_h": 79.914,
+    "median_h": 33.65277777777777,
+    "p75_h": 69.78972222222222,
+    "p90_h": 123.22722222222222,
+    "count": 16
   },
   "outcomes": {
-    "handed_off_to_development": 205,
-    "handoff_to_triage": 46,
-    "resolved_by_triager": 510,
-    "unassigned": 60,
-    "still_active": 14
+    "resolved_by_triager": 36,
+    "handed_off_to_development": 16,
+    "unassigned": 3,
+    "still_active": 3,
+    "handoff_to_triage": 5
   },
   "aging": {
     "by_triager": {
-      "Swen90": 2,
-      "oksenina": 6,
-      "AlexandrPkhm": 3,
-      "KolbasovAnton": 2,
-      "maxikuzmin": 1
+      "Swen90": 1,
+      "KolbasovAnton": 1,
+      "AlexandrPkhm": 1
     },
     "by_age_bucket": {
       "<24h": 0,
       "24-48h": 0,
       "48-72h": 0,
-      "72h+": 14
+      "72h+": 3
     }
   }
 }
