@@ -12,8 +12,12 @@ name: Monthly triage metrics
 on:
   schedule:
     - cron: "30 2 1 * *"          # 1st of every month, 02:30 UTC
-  workflow_dispatch:              # manual run / backfill
+  workflow_dispatch:              # manual run / backfill / smoke test
     inputs:
+      config:
+        description: "Config file (use config-smoke.yaml for a fast 3-repo smoke test)"
+        type: string
+        default: config.yaml
       months_back:
         description: Full calendar months to gather (default 1 = previous month)
         type: number
@@ -49,15 +53,18 @@ jobs:
         id: collect
         env:
           GITHUB_TOKEN: ${{ secrets.GH_READ_TOKEN }}
+          CFG: ${{ inputs.config }}
           MB: ${{ inputs.months_back }}
           AS_OF: ${{ inputs.as_of }}
         run: |
-          ARGS=(--cohort last --months-back "${MB:-1}")
+          ARGS=(--config "${CFG:-config.yaml}" --cohort last --months-back "${MB:-1}")
           if [ -n "${AS_OF:-}" ]; then ARGS+=(--as-of "$AS_OF"); fi
           python collect.py "${ARGS[@]}"
 
       - name: Analyze + build dashboard
-        run: python analyze.py
+        env:
+          CFG: ${{ inputs.config }}
+        run: python analyze.py --config "${CFG:-config.yaml}"
 
       - name: Stage dashboard for GitHub Pages
         run: |

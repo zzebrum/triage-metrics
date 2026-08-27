@@ -1,0 +1,72 @@
+# TRIAGE METRICS — SMOKE-TEST CONFIG
+#
+# An intentionally tiny copy of config.yaml (3 repositories instead of 17) for
+# quickly validating the pipeline end-to-end (CI -> collect -> analyze ->
+# Pages). The monthly workflow accepts this via its `config` input:
+#
+#     python collect.py --config config-smoke.yaml --cohort last --months-back 1
+#     python analyze.py --config config-smoke.yaml
+#
+# Using it OVERWRITES data/processed and dashboard/dashboard.html with the small
+# subset, so re-run the full config.yaml (default) afterwards to restore the
+# full picture. Do NOT deploy this long-term; it is only for smoke tests.
+
+repositories:
+  - AdguardTeam/AdguardForAndroid
+  - AdguardTeam/AdguardForWindows
+  - AdguardTeam/AdguardBrowserExtension
+
+triage_team:
+  - Swen90
+  - maxikuzmin
+  - ESurina
+  - oksenina
+  - AlexandrPkhm
+  - IaroslavKhvorostenko
+  - dmitriivqa39
+  - pakifev
+  - KolbasovAnton
+
+cohort:
+  start_date: 2026-02-01
+  end_date: 2026-08-01
+  mode: config           # CLI --cohort last overrides this for smoke runs
+  months_back: 1
+  include_aug_1: false
+
+default_assignee_history:
+  AdguardTeam/AdguardForAndroid:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  AdguardTeam/AdguardForWindows:
+    - { effective_from: 2026-02-01, assignee: AlexandrPkhm }
+  AdguardTeam/AdguardBrowserExtension:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+
+spam_labels: []
+
+cut_triage_after_dev_handoff: true
+
+default_assign_window_seconds: 300
+
+exclude_labels:
+  - spam
+
+exclude_creators:
+  - adguard-octobuddy[bot]
+  - adguard-bot
+
+exclude_team_created_issues: true
+
+# no exclude_repo_before entries in the smoke config
+
+bot_actors:
+  - adguard-bot
+  - adguard-octobuddy[bot]
+
+api:
+  base_url: https://api.github.com
+  per_page: 100
+  request_timeout_seconds: 30
+  max_retries: 3
+  backoff_seconds: 0.5
+  request_delay_seconds: 0.2
