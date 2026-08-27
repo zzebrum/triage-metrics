@@ -1,0 +1,1151 @@
+{
+  "meta": {
+    "cohort_end": "2026-08-01T00:00:00+00:00",
+    "cohort_start": "2026-02-01T00:00:00+00:00",
+    "collected_at": "2026-08-02T00:00:00Z",
+    "source": "mock",
+    "window_half_open": true
+  },
+  "repos": {
+    "AdguardTeam/AdGuardVPNForAndroid": {
+      "issues": [
+        {
+          "assignee": "dev-agent",
+          "assignees": [
+            "dev-agent"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-05-21T14:00:00Z",
+              "id": 1,
+              "user": "Swen90"
+            },
+            {
+              "created_at": "2026-05-22T19:00:00Z",
+              "id": 2,
+              "user": "ESurina"
+            }
+          ],
+          "created_at": "2026-05-21T08:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-21T08:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-21T09:00:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": "Swen90",
+              "assignee": "Swen90",
+              "created_at": "2026-05-21T09:00:00Z",
+              "event": "assigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": "Swen90",
+              "assignee": "Swen90",
+              "created_at": "2026-05-22T14:00:00Z",
+              "event": "unassigned",
+              "id": 4,
+              "label": null
+            },
+            {
+              "actor": "Swen90",
+              "assignee": "ESurina",
+              "created_at": "2026-05-22T14:00:00Z",
+              "event": "assigned",
+              "id": 5,
+              "label": null
+            },
+            {
+              "actor": "ESurina",
+              "assignee": "dev-agent",
+              "created_at": "2026-05-23T20:00:00Z",
+              "event": "assigned",
+              "id": 6,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "ESurina",
+              "created_at": "2026-05-23T20:00:00Z",
+              "event": "unassigned",
+              "id": 7,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForAndroid/issues/201",
+          "labels": [],
+          "number": 201,
+          "state": "open",
+          "state_reason": null,
+          "title": "VPN connection drops on Android 15",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": "maxikuzmin",
+          "assignees": [
+            "maxikuzmin"
+          ],
+          "closed_at": "2026-05-28T16:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-05-28T13:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-05-28T12:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-28T12:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-05-28T16:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForAndroid/issues/202",
+          "labels": [],
+          "number": 202,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Question: does the iOS VPN block ads too?",
+          "user": "reporter-delta"
+        },
+        {
+          "assignee": "maxikuzmin",
+          "assignees": [
+            "maxikuzmin"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-08-01T22:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-08-01T22:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-08-01T22:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForAndroid/issues/203",
+          "labels": [],
+          "number": 203,
+          "state": "open",
+          "state_reason": null,
+          "title": "Icon rendering issue on foldable devices",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-25T12:00:00Z",
+          "closed_by": null,
+          "comments": [],
+          "created_at": "2026-06-25T08:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-25T08:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "adguard-bot",
+              "assignee": null,
+              "created_at": "2026-06-25T12:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-25T12:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForAndroid/issues/204",
+          "labels": [],
+          "number": 204,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Automated dependency notice (bot-created)",
+          "user": "adguard-octobuddy[bot]"
+        }
+      ]
+    },
+    "AdguardTeam/AdGuardVPNForiOS": {
+      "issues": [
+        {
+          "assignee": "maxikuzmin",
+          "assignees": [
+            "maxikuzmin"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-06-20T16:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-20T15:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-20T15:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForiOS/issues/401",
+          "labels": [],
+          "number": 401,
+          "state": "open",
+          "state_reason": null,
+          "title": "App crashes when enabling Kill Switch",
+          "user": "reporter-gamma"
+        },
+        {
+          "assignee": "Swen90",
+          "assignees": [
+            "Swen90"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [],
+          "created_at": "2026-07-05T11:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-07-05T11:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-07-05T11:06:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": "Swen90",
+              "assignee": "Swen90",
+              "created_at": "2026-07-05T11:06:00Z",
+              "event": "assigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForiOS/issues/402",
+          "labels": [],
+          "number": 402,
+          "state": "open",
+          "state_reason": null,
+          "title": "Localization strings missing for nl-NL",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": "maxikuzmin",
+          "assignees": [
+            "maxikuzmin"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-07-31T12:15:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-07-31T12:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-07-31T12:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForiOS/issues/403",
+          "labels": [],
+          "number": 403,
+          "state": "open",
+          "state_reason": null,
+          "title": "DNS-over-HTTPS toggle no longer persists",
+          "user": "reporter-alpha"
+        }
+      ]
+    },
+    "AdguardTeam/AdguardForAndroid": {
+      "issues": [
+        {
+          "assignee": "adguard-dev",
+          "assignees": [
+            "adguard-dev"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-05-03T11:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-05-03T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-03T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "adguard-dev",
+              "created_at": "2026-05-03T15:00:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-03T15:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/101",
+          "labels": [],
+          "number": 101,
+          "state": "open",
+          "state_reason": null,
+          "title": "Crash on startup after update to 5.2",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": "dev-agent",
+          "assignees": [
+            "dev-agent"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-05-11T11:00:00Z",
+              "id": 1,
+              "user": "ESurina"
+            }
+          ],
+          "created_at": "2026-05-11T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-11T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-05-11T10:30:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": "ESurina",
+              "assignee": "ESurina",
+              "created_at": "2026-05-11T10:30:00Z",
+              "event": "assigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": "ESurina",
+              "assignee": "dev-agent",
+              "created_at": "2026-05-11T16:00:00Z",
+              "event": "assigned",
+              "id": 4,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "ESurina",
+              "created_at": "2026-05-11T16:00:00Z",
+              "event": "unassigned",
+              "id": 5,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/102",
+          "labels": [],
+          "number": 102,
+          "state": "open",
+          "state_reason": null,
+          "title": "Add option to disable telemetry per-app",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": "adguard-dev",
+          "assignees": [
+            "adguard-dev"
+          ],
+          "closed_at": "2026-08-01T01:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-07-15T11:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-07-15T08:30:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-07-15T08:30:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "adguard-dev",
+              "created_at": "2026-08-01T00:30:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-08-01T00:30:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": "dev-agent",
+              "assignee": null,
+              "created_at": "2026-08-01T01:00:00Z",
+              "event": "closed",
+              "id": 4,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/103",
+          "labels": [],
+          "number": 103,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Battery drain while using VPN always-on",
+          "user": "reporter-gamma"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-19T14:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-06-19T13:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-19T13:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-19T13:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-19T14:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-19T14:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/104",
+          "labels": [],
+          "number": 104,
+          "state": "closed",
+          "state_reason": null,
+          "title": "How do I update the app?",
+          "user": "user-newb"
+        },
+        {
+          "assignee": "adguard-dev",
+          "assignees": [
+            "adguard-dev"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-02-12T11:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-02-12T09:30:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-02-12T09:30:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "adguard-dev",
+              "created_at": "2026-02-13T05:30:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-02-13T05:30:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/105",
+          "labels": [],
+          "number": 105,
+          "state": "open",
+          "state_reason": null,
+          "title": "February crash on cold start",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-05-09T02:00:00Z",
+          "closed_by": null,
+          "comments": [],
+          "created_at": "2026-05-09T01:00:00Z",
+          "events": [
+            {
+              "actor": "adguard-bot",
+              "assignee": null,
+              "created_at": "2026-05-09T01:06:00Z",
+              "event": "labeled",
+              "id": 1,
+              "label": "spam"
+            },
+            {
+              "actor": "adguard-bot",
+              "assignee": null,
+              "created_at": "2026-05-09T02:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/107",
+          "labels": [],
+          "number": 107,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Buy followers fast!!! (spam)",
+          "user": "spam-account"
+        }
+      ]
+    },
+    "AdguardTeam/AdguardForWindows": {
+      "issues": [
+        {
+          "assignee": "AlexandrPkhm",
+          "assignees": [
+            "AlexandrPkhm"
+          ],
+          "closed_at": "2026-04-22T18:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-04-22T14:00:00Z",
+              "id": 1,
+              "user": "AlexandrPkhm"
+            }
+          ],
+          "created_at": "2026-04-22T13:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "AlexandrPkhm",
+              "created_at": "2026-04-22T13:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "AlexandrPkhm",
+              "assignee": null,
+              "created_at": "2026-04-22T18:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/31",
+          "labels": [],
+          "number": 31,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Window position not restored after reboot",
+          "user": "reporter-gamma"
+        }
+      ]
+    },
+    "AdguardTeam/AdguardForiOS": {
+      "issues": [
+        {
+          "assignee": "dev-agent",
+          "assignees": [
+            "dev-agent"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [],
+          "created_at": "2026-04-28T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-04-28T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "dev-agent",
+              "created_at": "2026-04-28T15:00:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/298",
+          "labels": [],
+          "number": 298,
+          "state": "open",
+          "state_reason": null,
+          "title": "Old issue from April",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-06-02T10:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-02T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-02T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-02T21:00:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/301",
+          "labels": [],
+          "number": 301,
+          "state": "open",
+          "state_reason": null,
+          "title": "Filter logs do not rotate correctly",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": "flutter-dev",
+          "assignees": [
+            "flutter-dev"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-06-10T09:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            },
+            {
+              "created_at": "2026-06-11T15:00:00Z",
+              "id": 2,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-10T07:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-10T07:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "dev-agent",
+              "created_at": "2026-06-10T12:00:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-10T12:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-11T13:00:00Z",
+              "event": "assigned",
+              "id": 4,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "flutter-dev",
+              "created_at": "2026-06-12T07:00:00Z",
+              "event": "assigned",
+              "id": 5,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-12T07:00:00Z",
+              "event": "unassigned",
+              "id": 6,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/302",
+          "labels": [],
+          "number": 302,
+          "state": "open",
+          "state_reason": null,
+          "title": "Ad blocking misses some XHR requests",
+          "user": "reporter-alpha"
+        }
+      ]
+    },
+    "AdguardTeam/ContentBlocker": {
+      "issues": [
+        {
+          "assignee": "dev-agent",
+          "assignees": [
+            "dev-agent"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-03-05T14:00:00Z",
+              "id": 1,
+              "user": "pakifev"
+            }
+          ],
+          "created_at": "2026-03-05T11:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-03-05T11:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-03-05T12:00:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": "pakifev",
+              "created_at": "2026-03-05T12:00:00Z",
+              "event": "assigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "pakifev",
+              "created_at": "2026-03-06T07:00:00Z",
+              "event": "unassigned",
+              "id": 4,
+              "label": null
+            },
+            {
+              "actor": "pakifev",
+              "assignee": "dev-agent",
+              "created_at": "2026-03-06T07:00:00Z",
+              "event": "assigned",
+              "id": 5,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/ContentBlocker/issues/91",
+          "labels": [],
+          "number": 91,
+          "state": "open",
+          "state_reason": null,
+          "title": "Content blocker stops filtering after app update",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": "dev-agent",
+          "assignees": [
+            "dev-agent"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-04-10T09:30:00Z",
+              "id": 1,
+              "user": "ESurina"
+            }
+          ],
+          "created_at": "2026-04-10T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-04-10T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-04-10T10:00:00Z",
+              "event": "unassigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": "ESurina",
+              "assignee": "dev-agent",
+              "created_at": "2026-04-10T10:00:00Z",
+              "event": "assigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/ContentBlocker/issues/92",
+          "labels": [],
+          "number": 92,
+          "state": "open",
+          "state_reason": null,
+          "title": "Internal task: bump DNS library (team-created)",
+          "user": "ESurina"
+        }
+      ]
+    },
+    "TrustTunnel/TrustTunnelFlutterClient": {
+      "issues": [
+        {
+          "assignee": "qa-bot",
+          "assignees": [
+            "qa-bot"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-07-12T12:00:00Z",
+              "id": 1,
+              "user": "oksenina"
+            }
+          ],
+          "created_at": "2026-07-12T09:00:00Z",
+          "events": [
+            {
+              "actor": "oksenina",
+              "assignee": "oksenina",
+              "created_at": "2026-07-12T11:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "oksenina",
+              "assignee": "qa-bot",
+              "created_at": "2026-07-12T19:00:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "oksenina",
+              "created_at": "2026-07-12T19:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/501",
+          "labels": [],
+          "number": 501,
+          "state": "open",
+          "state_reason": null,
+          "title": "Flutter client fails to build on Windows",
+          "user": "reporter-eps"
+        },
+        {
+          "assignee": "oksenina",
+          "assignees": [
+            "oksenina"
+          ],
+          "closed_at": null,
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-07-18T21:00:00Z",
+              "id": 1,
+              "user": "oksenina"
+            }
+          ],
+          "created_at": "2026-07-18T14:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "qa-bot",
+              "created_at": "2026-07-18T14:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "oksenina",
+              "assignee": "oksenina",
+              "created_at": "2026-07-18T20:00:00Z",
+              "event": "assigned",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "qa-bot",
+              "created_at": "2026-07-18T20:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/502",
+          "labels": [],
+          "number": 502,
+          "state": "open",
+          "state_reason": null,
+          "title": "Push notifications not delivered in beta",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": "oksenina",
+          "assignees": [
+            "oksenina"
+          ],
+          "closed_at": "2026-07-09T03:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "created_at": "2026-07-08T09:00:00Z",
+              "id": 1,
+              "user": "oksenina"
+            },
+            {
+              "created_at": "2026-07-09T05:00:00Z",
+              "id": 2,
+              "user": "oksenina"
+            },
+            {
+              "created_at": "2026-07-10T11:00:00Z",
+              "id": 3,
+              "user": "oksenina"
+            }
+          ],
+          "created_at": "2026-07-08T07:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "oksenina",
+              "created_at": "2026-07-08T07:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "oksenina",
+              "assignee": null,
+              "created_at": "2026-07-09T03:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "oksenina",
+              "created_at": "2026-07-09T03:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            },
+            {
+              "actor": "reporter-beta",
+              "assignee": null,
+              "created_at": "2026-07-10T09:00:00Z",
+              "event": "reopened",
+              "id": 4,
+              "label": null
+            },
+            {
+              "actor": "oksenina",
+              "assignee": "oksenina",
+              "created_at": "2026-07-10T09:00:00Z",
+              "event": "assigned",
+              "id": 5,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/503",
+          "labels": [],
+          "number": 503,
+          "state": "open",
+          "state_reason": null,
+          "title": "Token refresh throws 401 intermittently",
+          "user": "reporter-gamma"
+        }
+      ]
+    }
+  }
+}

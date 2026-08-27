@@ -1,0 +1,6 @@
+# Triage Metrics Pipeline dependencies
+#
+# Only what is strictly needed for the local, read-only pipeline.
+requests>=2.31
+PyYAML>=6.0
+pytest>=8.0

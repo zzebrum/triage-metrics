@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Secrets — never commit tokens.
+# config.yaml intentionally contains no secrets; if you add any env-file, ignore it here.
+.env
+env.sh
+
+# Raw snapshots: keep only the canonical latest in git; timestamped historical
+# copies (several MB each) stay local so repo history does not bloat over time.
+data/raw/raw_snapshot-*.json

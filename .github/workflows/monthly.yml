@@ -1,0 +1,95 @@
+# Monthly triage metrics — gather the last full calendar month, analyze, commit
+# results, and publish the dashboard to GitHub Pages. Fully automatic once set up.
+#
+# Requires (one-time, repo Settings):
+#   1. Secret GH_READ_TOKEN = a read-only PAT (collect.py is strictly GET-only).
+#      The ambient GITHUB_TOKEN is capped at 1,000 REST requests/h, which the
+#      full event+comment history can exceed, so we inject the PAT explicitly.
+#   2. Pages -> Build and deployment -> Source: GitHub Actions.
+
+name: Monthly triage metrics
+
+on:
+  schedule:
+    - cron: "30 2 1 * *"          # 1st of every month, 02:30 UTC
+  workflow_dispatch:              # manual run / backfill
+    inputs:
+      months_back:
+        description: Full calendar months to gather (default 1 = previous month)
+        type: number
+        default: 1
+      as_of:
+        description: "Reference date YYYY-MM-DD (default: today, UTC)"
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: monthly-metrics
+  cancel-in-progress: false
+
+jobs:
+  collect-and-analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect last period (read-only GitHub API)
+        id: collect
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_READ_TOKEN }}
+          MB: ${{ inputs.months_back }}
+          AS_OF: ${{ inputs.as_of }}
+        run: |
+          ARGS=(--cohort last --months-back "${MB:-1}")
+          if [ -n "${AS_OF:-}" ]; then ARGS+=(--as-of "$AS_OF"); fi
+          python collect.py "${ARGS[@]}"
+
+      - name: Analyze + build dashboard
+        run: python analyze.py
+
+      - name: Stage dashboard for GitHub Pages
+        run: |
+          mkdir -p deploy
+          cp dashboard/dashboard.html deploy/index.html
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/processed dashboard/dashboard.html data/raw/raw_snapshot.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(metrics): refresh triage metrics [skip ci]"
+            git push
+          else
+            echo "no data changes to commit"
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: deploy
+
+  deploy:
+    needs: collect-and-analyze
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

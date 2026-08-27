@@ -1,0 +1,188 @@
+# Triage Metrics Pipeline — configuration
+#
+# All times are treated as UTC internally (see README: Timezone assumption).
+#
+# Cohort: issues whose `created_at` falls in the half-open window
+#   [start_date, end_date)
+# i.e. created_at >= 2026-02-01T00:00:00Z AND created_at < 2026-08-01T00:00:00Z
+# = exactly February..July 2026 (six full months).
+# An issue created inside the cohort stays in the cohort even if completed later.
+#
+# MONTHLY RUNS ("run once a month, gather only the last period"): instead of
+# hand-editing start_date/end_date every month, set `mode: last` and run
+# `python collect.py` (or `python collect.py --cohort last`). The collector
+# then auto-computes the window = the previous `months_back` FULL calendar
+# months up to today and records it in the raw snapshot's meta; analyze.py
+# always analyzes exactly the window the collector recorded. Example:
+#   mode: last
+#   months_back: 1            # run in August  -> July 2026
+#                              # months_back: 6 -> Feb..Jul 2026 (current setup)
+# A given month's snapshot is overwritten each run (idempotent).
+# You can backfill / test deterministically with:
+#   python collect.py --cohort last --as-of 2026-08-01 --months-back 1
+
+repositories:
+  - AdguardTeam/AdguardForAndroid
+  - AdguardTeam/AdGuardVPNForAndroid
+  - AdguardTeam/AdguardForiOS
+  - AdguardTeam/AdGuardVPNForiOS
+  - TrustTunnel/TrustTunnelFlutterClient
+  - AdguardTeam/ContentBlocker
+  - AdguardTeam/AdguardForWindows
+  - AdguardTeam/AdguardForMac
+  - AdguardTeam/AdGuardVPNForWindows
+  - AdguardTeam/AdGuardVPNForMac
+  - AdguardTeam/AdGuardMiniForMac
+  - AdguardTeam/AdguardBrowserExtension
+  - AdguardTeam/AdGuardVPNExtension
+  - AdguardTeam/BrowserAssistant
+  - AdguardTeam/DisableAMP
+  - AdguardTeam/AdguardAssistant
+  - AdguardTeam/PopupBlocker
+
+# Only users listed here are considered triage team members.
+# Membership is never inferred from permissions, activity, labels or assignees.
+triage_team:
+  - Swen90
+  - maxikuzmin
+  - ESurina
+  - oksenina
+  - AlexandrPkhm
+  - IaroslavKhvorostenko
+  - dmitriivqa39
+  - pakifev
+  - KolbasovAnton
+
+# The default assignees below were stable across the whole cohort window for the
+# first analysis. If any repository's default changed BETWEEN Feb and Jul,
+# add extra `effective_from` entries here (analyzer picks the latest <=created).
+cohort:
+  start_date: 2026-02-01
+  end_date: 2026-08-01
+  # Monthly-run mechanism — see the header comment.
+  # Set `mode: last` to auto-compute the window as the previous `months_back`
+  # full calendar months instead of the explicit dates above. The collector
+  # records the computed window in the snapshot meta; analyze.py always uses
+  # the window the collector recorded. CLI overrides:
+  #   --cohort config|last, --months-back N, --as-of YYYY-MM-DD
+  mode: config           # config | last
+  months_back: 6         # used only when mode: last
+  # The window is half-open: [start_date, end_date). This gives exactly
+  # Feb..Jul. Change to include_aug_1: true to include 2026-08-01 too.
+  include_aug_1: false
+
+# Per-repository default assignee history.
+# The default assignee is always a member of the triage team.
+# `effective_from` is the earliest creation-date for which the assignee applies
+# (UTC). Entries are sorted by effective_from; the latest entry at-or-before an
+# issue's creation date wins. Issues created before the first entry (or in a
+# gap) resolve to `unknown` and are flagged in the Data Quality report.
+default_assignee_history:
+  AdguardTeam/AdguardForAndroid:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  AdguardTeam/AdGuardVPNForAndroid:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  AdguardTeam/AdguardForiOS:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  AdguardTeam/AdGuardVPNForiOS:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  TrustTunnel/TrustTunnelFlutterClient:
+    - { effective_from: 2026-02-01, assignee: oksenina }
+  AdguardTeam/ContentBlocker:
+    - { effective_from: 2026-02-01, assignee: maxikuzmin }
+  AdguardTeam/AdguardForWindows:
+    - { effective_from: 2026-02-01, assignee: AlexandrPkhm }
+  AdguardTeam/AdguardForMac:
+    - { effective_from: 2026-02-01, assignee: AlexandrPkhm }
+  AdguardTeam/AdGuardVPNForWindows:
+    - { effective_from: 2026-02-01, assignee: AlexandrPkhm }
+    - { effective_from: 2026-07-07, assignee: IaroslavKhvorostenko }
+  AdguardTeam/AdGuardVPNForMac:
+    - { effective_from: 2026-02-01, assignee: AlexandrPkhm }
+    - { effective_from: 2026-07-07, assignee: IaroslavKhvorostenko }
+  AdguardTeam/AdGuardMiniForMac:
+    - { effective_from: 2026-07-07, assignee: IaroslavKhvorostenko }
+  AdguardTeam/AdguardBrowserExtension:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+  AdguardTeam/AdGuardVPNExtension:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+  AdguardTeam/BrowserAssistant:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+  AdguardTeam/DisableAMP:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+  AdguardTeam/AdguardAssistant:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+  AdguardTeam/PopupBlocker:
+    - { effective_from: 2026-02-01, assignee: dmitriivqa39 }
+
+# Explicit, reliable signals used to classify an issue as spam/invalid.
+# An issue is `spam_or_invalid` ONLY if one of these labels is applied and
+# the issue is otherwise being treated as triage spam. A quick closure is
+# NEVER treated as spam on its own.
+# (Currently unused: spam-marked issues are excluded entirely via exclude_labels.)
+spam_labels: []
+
+# Once an issue has had its FIRST handoff to a non-triage (development) user,
+# the triage ownership phase is considered over. Later reassignments of the
+# issue back to a triage team member (dev "ready to check" / QA verification
+# returns, reopen-and-reassign) do NOT open new triage ownership intervals; they
+# are only counted as `post_dev_returns` on the issue. Set to false to keep
+# counting them (as first_assignment / triage handoffs).
+cut_triage_after_dev_handoff: true
+
+# Treat an assignment that happens this many seconds AFTER issue creation as
+# "assigned at creation" (GitHub records the default-assignee auto-assignment a
+# few seconds after creation, e.g. +7s). Makes the default assignee recognized
+# as accepted_from_default instead of a later first_assignment.
+default_assign_window_seconds: 300
+
+# Issues that carry ANY of these labels at any point are EXCLUDED from the
+# cohort at analysis time (same mechanism as exclude_creators): they never
+# reach the metrics, dashboard, or Data Quality report, but remain in the raw
+# snapshot (data/raw/raw_snapshot.json) for auditability.
+exclude_labels:
+  - spam
+
+# Issues CREATED by these users are excluded from the cohort at analysis time:
+# they never reach the metrics, dashboard, or Data Quality report. They remain
+# in the raw snapshot (data/raw/raw_snapshot.json) for auditability. Matching
+# is case-insensitive and user identity is compared against the issue creator.
+# Typically used to drop bot-created noise (e.g. dependency/cron/board bots).
+exclude_creators:
+  - adguard-octobuddy[bot]
+  - adguard-bot
+
+# If an issue was CREATED by a member of the triage team, assume it was already
+# triaged by the creator and passed directly to developers. Exclude such issues
+# from the cohort entirely (same mechanism as the other exclusions: raw only).
+# Set to false to keep team-created issues in the cohort.
+exclude_team_created_issues: true
+
+# Exclude issues created BEFORE a date in a specific repo from the cohort
+# entirely (same mechanism as the exclusions above: raw only, never counted).
+# Used for a previous owner's era that should not appear in the statistics
+# (e.g. AdGuardMiniForMac before IaroslavKhvorostenko took over, when the
+# default was windwak3r, who is intentionally not part of the triage team).
+exclude_repo_before:
+  AdguardTeam/AdGuardMiniForMac: 2026-07-07
+
+# Accounts recognized as BOTS when they PERFORM assignment changes on issues
+# (unlike exclude_creators, which is about who CREATED issues). Any account
+# whose login ends with '[bot]' is treated as a bot automatically; list others
+# here. Used to flag bulk/automation reassignments between triagers (e.g. a
+# coverage/vacation reroute) so they are auditable instead of looking like a
+# genuine triage handoff made after real ownership work.
+bot_actors:
+  - adguard-bot
+  - adguard-octobuddy[bot]
+
+# GitHub API. Pulled from the GITHUB_TOKEN environment variable at runtime.
+# Never commit a token to this file or anywhere in the repository.
+api:
+  base_url: https://api.github.com
+  # Read-only: the collector only issues GET requests.
+  per_page: 100
+  request_timeout_seconds: 30
+  max_retries: 3
+  # polite backoff between pages (seconds)
+  backoff_seconds: 0.5

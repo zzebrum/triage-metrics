@@ -1,0 +1,47 @@
+# CI — regression net for every push/PR. No GitHub API calls, no secrets.
+# Runs the unit tests and the full offline mock pipeline.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: python -m pytest -q
+
+      - name: Offline mock pipeline
+        run: |
+          python make_mock_data.py
+          python analyze.py --raw mock/raw_snapshot.json \
+            --out-dir /tmp/mock-out --dashboard-out /tmp/mock-out/dashboard.html
+
+      - name: Confirm generated dashboard loads no external resources
+        run: |
+          python - <<'PY'
+          import re
+          html = open("/tmp/mock-out/dashboard.html", encoding="utf-8").read()
+          refs = re.findall(r'(?:src|href)\s*=\s*["\']https?://\S+', html)
+          if refs:
+              print("dashboard.html references external resources:", refs, file=sys.stderr)
+              raise SystemExit(1)
+          print("ok: dashboard.html loads no external resources (self-contained)")
+          PY

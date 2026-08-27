@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triage Metrics — local dashboard</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --line:#e1e4e8; --text:#24292f; --muted:#57606a;
+    --accent:#0969da; --good:#1a7f37; --warn:#9a6700; --bad:#cf222e; --violet:#8250df;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--text);font-size:14px}
+  header{padding:18px 22px;background:#fff;border-bottom:1px solid var(--line)}
+  header h1{margin:0;font-size:20px}
+  header .sub{color:var(--muted);margin-top:2px}
+  main{padding:18px 22px;max-width:1280px;margin:0 auto}
+  .filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--card);
+           border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:18px}
+  .filters label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+  .filters select{padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;min-width:150px}
+  .multi{position:relative;min-width:170px}
+  .multi-btn{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;
+             font-family:inherit;font-size:12.5px;text-align:left;cursor:pointer;
+             display:flex;justify-content:space-between;align-items:center;gap:6px}
+  .multi-btn .caret{opacity:.55}
+  .multi-panel{position:absolute;z-index:50;top:calc(100% + 4px);left:0;min-width:230px;max-width:300px;
+               max-height:280px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:8px;
+               box-shadow:0 6px 18px rgba(0,0,0,.12);padding:6px}
+  .multi-panel label{display:flex;gap:8px;align-items:center;padding:4px 6px;border-radius:6px;cursor:pointer;
+                     font-size:12.5px;color:var(--text);text-transform:none;letter-spacing:0}
+  .multi-panel label:hover{background:#f6f8fa}
+  .multi-panel .all-row{border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:6px;color:var(--muted)}
+  section{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:18px}
+  section h2{margin:0 0 6px;font-size:16px}
+  section .hint{color:var(--muted);font-size:12px;margin:0 0 12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .card{border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;position:relative;cursor:help}
+  .card .num{font-size:26px;font-weight:600}
+  .card .lbl{color:var(--muted);font-size:12px;margin-top:2px}
+  .card .info{position:absolute;top:5px;right:8px;color:var(--muted);font-size:11px;opacity:.7}
+  .card:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+                     width:240px;background:#24292f;color:#fff;font-size:11.5px;line-height:1.45;padding:9px 11px;
+                     border-radius:6px;box-shadow:0 5px 16px rgba(0,0,0,.25);z-index:60;text-align:center;
+                     pointer-events:none;white-space:normal;font-weight:normal;text-transform:none;letter-spacing:0}
+  .card:hover::before{content:"";position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);
+                      border:6px solid transparent;border-top-color:#24292f;z-index:61}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  th{background:#f6f8fa;position:sticky;top:0;font-size:12px;text-transform:uppercase;color:var(--muted)}
+  tr:hover td{background:#f6f8fa}
+  .scroll{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:6px}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;border:1px solid var(--line)}
+  .outcome{border-radius:10px;padding:1px 8px;font-size:11px;color:#fff}
+  .o-hand{background:#0969da}.o-resolved{background:#1a7f37}.o-spam{background:#cf222e}
+  .o-unassigned{background:#6e7781}.o-active{background:#8250df}.o-handoff-triage{background:#d29922;color:#241800}
+  .o-unknown{background:#6e7781}
+  .segButtons{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .segButtons button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px}
+  .segButtons button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .bars{display:flex;flex-direction:column;gap:8px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr 64px;gap:8px;align-items:center;cursor:pointer}
+  .bar-row .name{font-size:12.5px;text-align:right;color:var(--muted)}
+  .bar-track{background:#eaeef2;border-radius:4px;height:18px;overflow:hidden}
+  .bar-fill{background:var(--accent);height:100%;min-width:2px}
+  .bar-row .val{font-size:12px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:6px 0 8px}
+  .legend .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
+  canvas{max-width:100%}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .pill{flex:1;min-width:120px;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center}
+  .pill .n{font-size:20px;font-weight:600}.pill .d{font-size:12px;color:var(--muted)}
+  .dq-warn{background:#fff8c5;border:1px solid #d4a72c}
+  .muted{color:var(--muted)}
+  .small{font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>☰ Triage Metrics — local dashboard</h1>
+  <div class="sub" id="subtitle">loading…</div>
+</header>
+<main>
+
+  <div class="filters">
+    <div><label>Repository</label><br>
+      <div class="multi" id="multiRepo">
+        <button class="multi-btn" type="button" data-key="repo">All <span class="caret">▾</span></button>
+        <div class="multi-panel" hidden></div>
+      </div>
+    </div>
+    <div><label>Triager</label><br>
+      <div class="multi" id="multiTriager">
+        <button class="multi-btn" type="button" data-key="triager">All <span class="caret">▾</span></button>
+        <div class="multi-panel" hidden></div>
+      </div>
+    </div>
+    <div><label>Month (creation)</label><br><select id="fMonth"></select></div>
+    <div><label>Outcome</label><br><select id="fOutcome"></select></div>
+    <div><label>Status</label><br>
+      <select id="fStatus">
+        <option value="all">All</option>
+        <option value="active">Active only</option>
+        <option value="completed">Completed only</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 1. Summary -->
+  <section id="sec-summary">
+    <h2>1 · Summary</h2>
+    <p class="hint">High-level totals recomputed live from the selection above (Repository / Triager / Month / Outcome / Status). The four "Excluded …" cards are whole-cohort context and don't change with the filters.</p>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <div class="grid2">
+    <!-- 2. Workload by triager -->
+    <section id="sec-workload">
+      <h2>2 · Workload by triager</h2>
+      <p class="hint">Ownership intervals per triager. Switch metric; click a bar to filter by triager.</p>
+      <div class="segButtons" id="workloadSeg">
+        <button data-m="total" class="active">total</button>
+        <button data-m="month">by month</button>
+        <button data-m="dev">handed to dev</button>
+        <button data-m="resolved">resolved</button>
+        <button data-m="spam">spam</button>
+      </div>
+      <div class="bars" id="workloadBars"></div>
+    </section>
+
+    <!-- 5. Issue outcomes -->
+    <section id="sec-outcomes">
+      <h2>5 · Issue outcomes</h2>
+      <p class="hint">Distribution of the terminal outcome of each ownership interval. Click a bar to filter by outcome.</p>
+      <div class="bars" id="outcomeBars"></div>
+    </section>
+  </div>
+
+  <!-- 3. Triage cycle time -->
+  <section id="sec-cycle">
+    <h2>3 · Triage cycle time <span class="muted small">(completed, non-spam ownership intervals)</span></h2>
+    <p class="hint">Monthly trends per triager. Hours. Pick a triager (filter above) or view all.</p>
+    <div class="segButtons" id="cycleSeg">
+      <button data-m="median_h" class="active">median</button>
+      <button data-m="avg_h">average</button>
+      <button data-m="p75_h">p75</button>
+    </div>
+    <div id="cycleChartWrap"></div>
+    <div class="legend" id="cycleLegend"></div>
+    <div style="margin-top:10px">
+      <table id="cycleTable"></table>
+    </div>
+  </section>
+
+  <!-- 4. Time to development handoff -->
+  <section id="sec-dev">
+    <h2>4 · Time to development handoff</h2>
+    <p class="hint">Per issue: <b>first triage assignment → handoff to development</b> (the full triage lead time, covering multi-triager chains). Only issues whose outcome is <b>handed_off_to_development</b>. Filter by triager / repository / month above.</p>
+    <div class="pill-row" id="devPills"></div>
+    <div class="scroll"><table id="devTable"></table></div>
+  </section>
+
+  <!-- 6. Aging -->
+  <section id="sec-aging">
+    <h2>6 · Active / aging work <span class="muted small">(attention signal, not a performance score)</span></h2>
+    <p class="hint">Age is measured against the data collection timestamp. &gt;72h does not imply triager delay.</p>
+    <div class="pill-row" id="agingPills"></div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <div class="bars" id="agingByTriager" style="flex:1;min-width:280px"></div>
+      <div class="bars" id="agingBuckets" style="flex:1;min-width:280px"></div>
+    </div>
+    <h3 style="margin:14px 0 6px;font-size:14px">Active issues (detailed)</h3>
+    <div class="scroll"><table id="agingTable"></table></div>
+  </section>
+
+  <!-- 7. Detailed ownership intervals (audit drill-down) -->
+  <section id="sec-detail">
+    <h2>7 · Ownership intervals — drill-down <span class="muted small">(auditability)</span></h2>
+    <p class="hint">Every aggregate is traceable to rows here. Issue numbers link to GitHub.</p>
+    <div class="scroll"><table id="detailTable"></table></div>
+  </section>
+
+  <!-- Data quality -->
+  <section id="sec-dq">
+    <h2>Data quality report</h2>
+    <p class="hint">Questionable records are never silently dropped. Rows flagged here explain uncertainty. List follows the Repository filter above (flags carry no triager/month/outcome, so those filters don't hide them).</p>
+    <div class="scroll"><table id="dqTable"></table></div>
+  </section>
+
+  <footer class="muted small" style="margin:24px 0;text-align:center">
+    Generated from <code>data/processed/triage_ownership.json</code> — collected_at: <span id="footCollected"></span>
+  </footer>
+</main>
+
+<script>
+const DATA = /*__EMBEDDED_DATA__*/;
+
+const COLORS_BY_OUTCOME = {
+  handed_off_to_development: "#0969da", resolved_by_triager: "#1a7f37",
+  spam_or_invalid: "#cf222e", unassigned: "#6e7781", still_active: "#8250df",
+  handoff_to_triage: "#d29922", unknown: "#6e7781"
+};
+const OUTCOME_LABEL = {
+  handed_off_to_development: "handed to dev", resolved_by_triager: "resolved by triager",
+  spam_or_invalid: "spam/invalid", unassigned: "unassigned", still_active: "active",
+  handoff_to_triage: "triager→triager", unknown: "unknown"
+};
+
+// repo & triager are MULTISELECT (arrays; empty = All); month/outcome/status single-select
+const state = { repo:[], triager:[], month:'All', outcome:'All', status:'all' };
+let repoNames = [], triagerNames = [];
+
+function uniq(arr){ return [...new Set(arr)].sort(); }
+
+function fmtH(h){ if(h==null) return "–"; if(h<1) return h.toFixed(2)+" h"; if(h<48) return h.toFixed(1)+" h"; return (h/24).toFixed(1)+" d"; }
+function mean(a){ return a.length? a.reduce((x,y)=>x+y,0)/a.length : null; }
+function median(a){ if(!a.length) return null; const s=[...a].sort((x,y)=>x-y); const m=Math.floor(s.length/2); return s.length%2? s[m] : (s[m-1]+s[m])/2; }
+function pct(a,p){ if(!a.length) return null; const s=[...a].sort((x,y)=>x-y); const r=Math.max(1,Math.ceil(p/100*s.length)); return s[Math.min(r,s.length)-1]; }
+
+function filtered(){
+  return DATA.intervals.filter(i =>
+    (state.repo.length===0 || state.repo.includes(i.repository)) &&
+    (state.triager.length===0 || state.triager.includes(i.triage_username)) &&
+    (state.month==='All'|| i.issue_creation_month===state.month) &&
+    (state.outcome==='All'|| i.issue_outcome===state.outcome) &&
+    (state.status==='all'|| (state.status==='active'? i.ownership_end==null : i.ownership_end!=null))
+  );
+}
+
+/* ---------- multiselect widgets (repo / triager) ---------- */
+function multiOptions(key){ return key==='repo' ? repoNames : triagerNames; }
+function renderMultiPanels(){
+  ["repo","triager"].forEach(key=>{
+    const root = document.getElementById(key==='repo'?"multiRepo":"multiTriager");
+    const btn = root.querySelector(".multi-btn");
+    const panel = root.querySelector(".multi-panel");
+    const sel = state[key];
+    btn.innerHTML = (sel.length? sel.length+" selected" : "All") + ' <span class="caret">▾</span>';
+    btn.title = sel.length ? sel.join(", ") : "All";
+    const opts = multiOptions(key);
+    let html = `<label class="all-row"><input type="checkbox" data-multi="${key}" data-all="1" ${sel.length===0?"checked":""}> All (clear)</label>`;
+    opts.forEach(o=>{ html += `<label><input type="checkbox" data-multi="${key}" value="${o}" ${sel.includes(o)?"checked":""}> ${o}</label>`; });
+    panel.innerHTML = html;
+  });
+}
+function closeMultiPanels(except){ document.querySelectorAll(".multi-panel").forEach(p=>{ if(p!==except) p.hidden = true; }); }
+
+function toggleMulti(key, value){
+  const cur = (state[key]||[]).slice();
+  const i = cur.indexOf(value);
+  if (i>=0) cur.splice(i,1); else cur.push(value);
+  state[key] = cur;
+  renderMultiPanels(); syncSelects(); rebuild();
+}
+function setFilter(k,v){
+  if (k==='repo' || k==='triager'){ toggleMulti(k,v); return; }
+  state[k]=v; syncSelects(); rebuild();
+}
+function syncSelects(){
+  const map={month:'fMonth',outcome:'fOutcome',status:'fStatus'};
+  Object.entries(map).forEach(([k,id])=>{
+    const sel=document.getElementById(id);
+    if(sel && sel.value!==state[k] && [...sel.options].some(o=>o.value===state[k])) sel.value=state[k];
+  });
+}
+
+document.addEventListener("click", e=>{
+  // multiselect checkbox toggles
+  const cb = e.target.closest && e.target.closest("input[data-multi]");
+  if (cb){
+    const key = cb.dataset.multi, val = cb.value;
+    if (cb.dataset.all){ state[key]=[]; renderMultiPanels(); syncSelects(); rebuild(); return; }
+    toggleMulti(key, val);           // syncs its own checkbox via renderMultiPanels
+    return;
+  }
+  // panel open/close
+  const btn = e.target.closest && e.target.closest(".multi-btn");
+  if (btn){
+    const p = btn.parentElement.querySelector(".multi-panel");
+    p.hidden = !p.hidden;
+    closeMultiPanels(p);
+    return;
+  }
+  if (!e.target.closest(".multi-panel")) closeMultiPanels();
+});
+
+const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+function monthLabel(m){ // "2026-02" -> "Feb 2026"
+  if(!m || m.indexOf("-")<0) return m;
+  const [y,mo]=m.split("-");
+  return MONTH_NAMES[parseInt(mo,10)-1].slice(0,3)+" "+y;
+}
+
+/* ---------- tiny canvas line chart ---------- */
+function lineChart(el, series, months){
+  el.innerHTML = "";
+  if(!months.length || !series.length){ el.innerHTML='<div class="muted">no data</div>'; return; }
+  const c = document.createElement("canvas");
+  c.width=760; c.height=260; c.style.width="100%"; c.style.height="auto";
+  el.appendChild(c);
+  const ctx=c.getContext("2d");
+  const W=c.width,H=c.height,padL=58,padR=18,padT=14,padB=26;
+  let max=0; series.forEach(s=>s.points.forEach(v=>{ if(v!=null&&v>max)max=v; }));
+  if(max<=0) max=1; max*=1.1;
+  const x=i=>padL + i*(W-padL-padR)/(months.length-1||1);
+  const y=v=> H-padB - (v/max)*(H-padT-padB);
+  // grid + y labels
+  ctx.font="11px -apple-system,sans-serif"; ctx.fillStyle="#57606a"; ctx.strokeStyle="#e1e4e8";
+  for(let g=0;g<=4;g++){ const v=max*g/4, yy=y(v); ctx.beginPath(); ctx.moveTo(padL,yy); ctx.lineTo(W-padR,yy); ctx.stroke(); ctx.fillText(v.toFixed(1), 4, yy+3); }
+  // x labels
+  ctx.textAlign="center";
+  months.forEach((m,i)=>{ ctx.fillStyle="#57606a"; ctx.fillText(monthLabel(m), x(i), H-8); });
+  // lines
+  series.forEach(s=>{
+    ctx.strokeStyle=s.color; ctx.fillStyle=s.color; ctx.lineWidth=2;
+    ctx.beginPath();
+    s.points.forEach((v,i)=>{ if(v==null)return; const px=x(i),py=y(v); i? ctx.lineTo(px,py): ctx.moveTo(px,py); });
+    ctx.stroke();
+    s.points.forEach((v,i)=>{ if(v==null)return; ctx.beginPath(); ctx.arc(x(i),y(v),3,0,7); ctx.fill(); });
+  });
+}
+
+function barChart(el, rows, onClick, colorFn){
+  el.innerHTML = "";
+  const total = Math.max(1, ...rows.map(r=>r.value));
+  rows.forEach(r=>{
+    const row=document.createElement("div"); row.className="bar-row";
+    row.onclick = ()=> onClick && onClick(r);
+    row.title = r.value + " — click to filter" + (r.title?(" ("+r.title+")"):"");
+    const name=document.createElement("div"); name.className="name"; name.textContent=r.label;
+    const track=document.createElement("div"); track.className="bar-track";
+    const fill=document.createElement("div"); fill.className="bar-fill";
+    fill.style.width=Math.max(0.5,(r.value/total)*100)+"%";
+    if(colorFn) fill.style.background=colorFn(r);
+    track.appendChild(fill);
+    const val=document.createElement("div"); val.className="val"; val.textContent=r.value;
+    row.append(name,track,val);
+    el.appendChild(row);
+  });
+  if(!rows.length) el.innerHTML='<div class="muted">no data</div>';
+}
+
+/* ---------- renderers ---------- */
+function dqFiltered(){
+  // Data-quality flags can only be aligned to the Repository filter (they carry
+  // no triager/month/outcome — many reference issues that never entered triage).
+  return (Array.isArray(DATA.data_quality)? DATA.data_quality : []).filter(r=>
+    state.repo.length===0 || state.repo.includes(r.repository));
+}
+function renderSummary(rows){
+  // Summary is recomputed live from the filtered interval rows so the whole
+  // block responds to the dropdowns above (same source the other sections use).
+  const st = DATA.metrics.summary;
+  const collected = new Date(DATA.meta.collected_at);
+  const active = rows.filter(i=>i.ownership_end==null);
+  const ageH = i=> (collected - new Date(i.ownership_start))/3600000;
+  const n = o=> rows.filter(i=>i.issue_outcome===o).length;
+  const cards = [
+    ["Issues in cohort", new Set(rows.map(i=>i.repository+"#"+i.issue_number)).size,
+     "Distinct issues covered by the ownership intervals in the current selection (Repository / Triager / Month / Outcome / Status). Changes with the filters."],
+    ["Ownership intervals", rows.length,
+     "Ownership intervals matching the current selection. One issue can produce several intervals (reassignments, handoffs, reopens)."],
+    ["Completed intervals", rows.filter(i=>i.ownership_end).length,
+     "Ownership intervals that have ended in the current selection (handed to dev / resolved / closed / unassigned). Complement of Active issues."],
+    ["Active issues", active.length,
+     "Open issues still under triage ownership at collection time, in the current selection. Feed the Aging report — attention signal, not a delay verdict."],
+    ["Handed to dev", n("handed_off_to_development"),
+     "Intervals ending by assigning the issue to a non-triage (development) user, in the current selection. Basis of the Time-to-Development-Handoff metric."],
+    ["Resolved by triager", n("resolved_by_triager"),
+     "Intervals ending with the triager closing the issue directly in the current selection. Legitimate triage work, no dev handoff."],
+    ["Spam/invalid", n("spam_or_invalid"),
+     "Classified spam/invalid in the current selection. Usually 0: spam-labelled issues are excluded entirely (see Excluded (spam))."],
+    ["Excluded (bots)", st.excluded_by_creator || 0,
+     "Whole-cohort context, not affected by the filters: issues created by bot accounts (config exclude_creators) removed before analysis."],
+    ["Excluded (team-created)", st.excluded_by_team || 0,
+     "Whole-cohort context, not affected by the filters: issues CREATED by a triage team member are excluded from the cohort."],
+    ["Excluded (spam)", st.excluded_by_label || 0,
+     "Whole-cohort context, not affected by the filters: issues carrying the 'spam' label removed entirely from the cohort."],
+    ["Excluded (repo era)", st.excluded_by_repo || 0,
+     "Whole-cohort context, not affected by the filters: issues created before a configured repo-era cutoff removed entirely."],
+    ["Active >48h", active.filter(i=>ageH(i)>=48).length,
+     "Active issues owned longer than 48 hours in the current selection. First aging attention threshold."],
+    ["Active >72h", active.filter(i=>ageH(i)>=72).length,
+     "Active issues owned longer than 72 hours in the current selection. Main aging signal; may still be legitimate (waiting on dev/user)."],
+    ["Data quality flags", dqFiltered().length,
+     "Records flagged in the Data Quality report for the repositories in the current selection. Never silently dropped."]
+  ];
+  document.getElementById("cards").innerHTML = cards.map(([l,n,tip])=>
+    `<div class="card" data-tip="${esc(tip)}"><span class="info">ⓘ</span><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join("");
+}
+
+let workloadMode="total";
+function renderWorkload(rows){
+  const wm=workloadMode;
+  const triagers = uniq(rows.map(i=>i.triage_username));
+  const months = uniq(rows.map(i=>i.issue_creation_month));
+  const el = document.getElementById("workloadBars");
+  const outOf = wm==="dev"?"handed_off_to_development": wm==="resolved"?"resolved_by_triager": wm==="spam"?"spam_or_invalid": null;
+  if(wm==="byMonth"){
+    el.innerHTML = "";
+    months.forEach(m=>{
+      const inM = rows.filter(i=>i.issue_creation_month===m);
+      const mrows = triagers.map(t=>({label:t, value: inM.filter(i=>i.triage_username===t && (!outOf || i.issue_outcome===outOf)).length}));
+      const wrap=document.createElement("div");
+      wrap.innerHTML=`<div class="muted" style="margin:8px 0 4px">${monthLabel(m)}</div>`;
+      const bars=document.createElement("div"); bars.className="bars";
+      const total=Math.max(1, ...mrows.map(r=>r.value));
+      mrows.forEach(r=>{
+        const row=document.createElement("div"); row.className="bar-row";
+        row.innerHTML=`<div class="name">${r.label}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0.5,(r.value/total)*100)}%"></div></div><div class="val">${r.value}</div>`;
+        row.onclick=()=>setFilter("triager",r.label);
+        bars.appendChild(row);
+      });
+      wrap.appendChild(bars); el.appendChild(wrap);
+    });
+    return;
+  }
+  const data = triagers.map(t=>({label:t, value: rows.filter(i=>i.triage_username===t && (!outOf || i.issue_outcome===outOf)).length}));
+  barChart(el, data, r=>setFilter("triager",r.label));
+}
+
+let cycleMode="median_h";
+function renderCycle(rows){
+  const months = DATA.metrics.meta && DATA.metrics ? uniq(rows.map(i=>i.issue_creation_month)) : [];
+  // compute per triager & month from interval rows (recompute here for filter correctness)
+  const triagers = uniq(rows.map(i=>i.triage_username));
+  const allMonths = uniq(rows.map(i=>i.issue_creation_month));
+  const series = triagers.map(t=>{
+    const points = allMonths.map(m=>{
+      const vals = rows.filter(i=> i.triage_username===t && i.issue_creation_month===m && i.ownership_end
+        && i.issue_outcome!=="spam_or_invalid" && i.ownership_duration_hours!=null)
+        .map(i=>i.ownership_duration_hours);
+      if(!vals.length) return null;
+      if(cycleMode==="median_h") return median(vals);
+      if(cycleMode==="avg_h") return mean(vals);
+      return pct(vals,75);
+    });
+    return { name:t, color: trColor(t), points };
+  });
+  lineChart(document.getElementById("cycleChartWrap"), series, allMonths);
+  // legend so it's clear which color belongs to which triager in this selection
+  document.getElementById("cycleLegend").innerHTML =
+    triagers.map(t=>`<span><span class="sw" style="background:${trColor(t)}"></span>${t}</span>`).join("");
+  // table
+  const head = ["Triager", ...allMonths.map(monthLabel), "All"];
+  const body = triagers.map(t=>{
+    const valsAll = rows.filter(i=>i.triage_username===t && i.ownership_end && i.issue_outcome!=="spam_or_invalid" && i.ownership_duration_hours!=null).map(i=>i.ownership_duration_hours);
+    const rowTd = allMonths.map(m=>{
+      const vals = rows.filter(i=>i.triage_username===t && i.issue_creation_month===m && i.ownership_end && i.issue_outcome!=="spam_or_invalid" && i.ownership_duration_hours!=null).map(i=>i.ownership_duration_hours);
+      return `<td>${vals.length? fmtH(cycleMode==="median_h"?median(vals): cycleMode==="avg_h"?mean(vals): pct(vals,75)) : "–"}</td>`;
+    });
+    return `<tr><td>${t}</td>${rowTd.join("")}<td><b>${valsAll.length? fmtH(cycleMode==="median_h"?median(valsAll): cycleMode==="avg_h"?mean(valsAll): pct(valsAll,75)) : "–"}</b> <span class="muted">(n=${valsAll.length})</span></td></tr>`;
+  });
+  document.getElementById("cycleTable").innerHTML = `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${body.join("")}</tbody>`;
+}
+// Stable per-person colors: hardcoded for the triage team (same person, same
+// color across runs and filters), with a collision-avoiding fallback for any
+// triager not in the list so every line/bar stays distinguishable.
+const TRIAGER_COLORS = {
+  Swen90:"#0969da", maxikuzmin:"#1a7f37", ESurina:"#cf222e", oksenina:"#8250df",
+  AlexandrPkhm:"#d29922", IaroslavKhvorostenko:"#0b7882", dmitriivqa39:"#e16f24",
+  pakifev:"#57606a", KolbasovAnton:"#a475f9"
+};
+const TRIAGER_PALETTE = ["#0b7882","#cf222e","#1a7f37","#8250df","#d29922","#0969da",
+  "#e16f24","#a475f9","#57606a","#0d6e6e","#d0c200","#2da44e","#bc4c00","#6f42c1",
+  "#f3591e","#269a9a","#4f6ef7","#bf3989","#7d4c00","#008080"];
+const _extraTriagerColors = {};
+const _usedTriagerColors = new Set(Object.values(TRIAGER_COLORS));
+function nameHash(s){ let h=0; [...s].forEach(ch=>h=(h*31+ch.charCodeAt(0))>>>0); return h; }
+function trColor(t){
+  if(TRIAGER_COLORS[t]) return TRIAGER_COLORS[t];
+  if(_extraTriagerColors[t]) return _extraTriagerColors[t];
+  const start = nameHash(t)%TRIAGER_PALETTE.length;
+  let c = TRIAGER_PALETTE[start];
+  for(let d=0; d<TRIAGER_PALETTE.length && _usedTriagerColors.has(c); d++)
+    c = TRIAGER_PALETTE[(start+d)%TRIAGER_PALETTE.length];
+  _extraTriagerColors[t]=c; _usedTriagerColors.add(c);
+  return c;
+}
+
+function fmtIso(d){ return d.toISOString().slice(0,16)+"Z"; }
+function renderDev(rows){
+  // ISSUE-level time to dev: first triage assignment -> handoff to development.
+  const devRows = rows.filter(i=>i.issue_outcome==="handed_off_to_development" && i.ownership_end);
+  const byIssue = {};
+  devRows.forEach(i=>{ const k=i.repository+"#"+i.issue_number; (byIssue[k]=byIssue[k]||[]).push(i); });
+  const issues = Object.entries(byIssue).map(([k, di])=>{
+    const d0 = di[0];
+    const all = DATA.intervals.filter(x=>x.repository+"#"+x.issue_number===k);
+    const starts = all.map(x=>new Date(x.ownership_start));
+    const devEnds = di.map(x=>new Date(x.ownership_end));
+    const firstTs = Math.min.apply(null, starts);
+    const devTs = Math.min.apply(null, devEnds);
+    const hours = (devTs - firstTs)/3600000;
+    return { repo:d0.repository, num:d0.issue_number, url:d0.issue_url, title:d0.issue_title,
+             triager:d0.triage_username, first:new Date(firstTs), devAt:new Date(devTs), hours, next:d0.next_assignee };
+  }).filter(x=>x.hours>=0).sort((a,b)=>b.hours-a.hours);
+  const vals = issues.map(i=>i.hours);
+  const el=document.getElementById("devPills");
+  el.innerHTML = [
+    ["Issues to dev", issues.length], ["Median", fmtH(median(vals))], ["Average", fmtH(mean(vals))],
+    ["p75", fmtH(pct(vals,75))], ["p90", fmtH(pct(vals,90))]
+  ].map(([l,n])=>`<div class="pill"><div class="n">${n}</div><div class="d">${l}</div></div>`).join("");
+  const tbl=document.getElementById("devTable");
+  if(!issues.length){ tbl.innerHTML='<div class="muted">no development handoffs in current filter</div>'; return; }
+  const head=["Repo","Issue","Title","Handed by triager","First triage assignment","Handed to dev","Time to dev","next"];
+  const body=issues.map(i=>`<tr>
+    <td>${i.repo.split("/")[1]}</td>
+    <td><a href="${i.url}" target="_blank">#${i.num}</a></td>
+    <td>${esc(i.title)}</td>
+    <td>${i.triager}</td>
+    <td class="small">${fmtIso(i.first)}</td>
+    <td class="small">${fmtIso(i.devAt)}</td>
+    <td><b>${fmtH(i.hours)}</b></td>
+    <td class="small">${i.next||"—"}</td>
+  </tr>`).join("");
+  tbl.innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+}
+
+function renderOutcomes(rows){
+  const counts={}; rows.forEach(i=>{ counts[i.issue_outcome]=(counts[i.issue_outcome]||0)+1; });
+  const data = Object.entries(counts).map(([k,v])=>({ label:(OUTCOME_LABEL[k]||k)+` (${v})`, value:v, key:k }));
+  barChart(document.getElementById("outcomeBars"), data, r=>setFilter("outcome", r.key), r=>COLORS_BY_OUTCOME[r.key]||"#0969da");
+}
+
+function renderAging(rows){
+  const active = rows.filter(i=>i.ownership_end==null);
+  const collected = new Date(DATA.meta.collected_at);
+  const aged = active.map(i=>({...i, ageH: (collected - new Date(i.ownership_start))/3600000, }));
+  const age = i=> i.ageH<24?"<24h": i.ageH<48?"24–48h": i.ageH<72?"48–72h":"72h+";
+  const byTriager={}; aged.forEach(i=> byTriager[i.triage_username]=(byTriager[i.triage_username]||0)+1);
+  const buckets={"<24h":0,"24–48h":0,"48–72h":0,"72h+":0};
+  aged.forEach(i=> buckets[age(i)]++);
+  const n48 = aged.filter(i=>i.ageH>=48).length, n72=aged.filter(i=>i.ageH>=72).length;
+  document.getElementById("agingPills").innerHTML = [
+    ["Active", aged.length], [">48h", n48], [">72h", n72]
+  ].map(([l,n])=>`<div class="pill"><div class="n">${n}</div><div class="d">${l}</div></div>`).join("");
+  barChart(document.getElementById("agingByTriager"),
+    Object.entries(byTriager).map(([k,v])=>({label:k,value:v})), null, r=>trColor(r.label));
+  barChart(document.getElementById("agingBuckets"),
+    Object.entries(buckets).map(([k,v])=>({label:k,value:v})), null, ()=> "#8250df");
+  const tbl=document.getElementById("agingTable");
+  if(!aged.length){ tbl.innerHTML='<div class="muted">no active issues in current filter</div>'; return; }
+  const lookup={}; DATA.issue_summary.forEach(iss=>{ lookup[iss.repository+"#"+iss.issue_number]=iss; });
+  const head=["Repo","Issue","Title","Triager","Created","Ownership start","Age","Bucket","Default at creation","Current assignee","State"];
+  const rowsHtml = aged.sort((a,b)=>b.ageH-a.ageH).map(i=>{
+    const iss=lookup[i.repository+"#"+i.issue_number]||{};
+    return `<tr>
+    <td>${i.repository.split("/")[1]}</td>
+    <td><a href="${i.issue_url}" target="_blank">#${i.issue_number}</a></td>
+    <td>${esc(i.issue_title)}</td>
+    <td>${i.triage_username}</td>
+    <td class="small">${i.issue_created_at}</td>
+    <td class="small">${i.ownership_start}</td>
+    <td><b>${fmtH(i.ageH)}</b></td>
+    <td><span class="badge">${age(i)}</span></td>
+    <td>${i.default_assignee_at_creation||"?"}</td>
+    <td>${iss.current_assignee||"—"}</td>
+    <td>${iss.current_state||i.issue_state_hint||""}</td>
+    </tr>`;
+  }).join("");
+  tbl.innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+function actorCol(a){
+  if(!a) return "—";
+  const isBot = /bot/i.test(a);
+  return `<span class="small">${esc(a)}</span>${isBot?' <span class="badge" style="color:#cf222e">bot</span>':""}`;
+}
+function intervalTable(rows){
+  if(!rows.length) return '<div class="muted">no rows</div>';
+  const head=["Repo","Issue","Title","Triager","Start by","End by","Start","End","Duration","Outcome","start type","end reason","next"];
+  const body=rows.map(i=>{
+    const out=i.issue_outcome; const cls={handed_off_to_development:"o-hand",resolved_by_triager:"o-resolved",spam_or_invalid:"o-spam",unassigned:"o-unassigned",still_active:"o-active",handoff_to_triage:"o-handoff-triage",unknown:"o-unknown"}[out]||"o-unknown";
+    return `<tr>
+    <td>${i.repository.split("/")[1]}</td>
+    <td><a href="${i.issue_url}" target="_blank">#${i.issue_number}</a></td>
+    <td>${esc(i.issue_title)}</td>
+    <td>${i.triage_username}</td>
+    <td class="small">${actorCol(i.ownership_start_actor)}</td>
+    <td class="small">${actorCol(i.ownership_end_actor)}</td>
+    <td class="small">${i.ownership_start}</td>
+    <td class="small">${i.ownership_end||"—"}</td>
+    <td>${i.ownership_duration_hours==null?"—":fmtH(i.ownership_duration_hours)}</td>
+    <td><span class="outcome ${cls}">${OUTCOME_LABEL[out]||out}</span></td>
+    <td class="small">${i.start_type||"—"}</td>
+    <td class="small">${i.ownership_end_reason||"—"}</td>
+    <td class="small">${i.next_assignee||"—"}</td>
+    </tr>`;
+  }).join("");
+  return `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+}
+
+function renderDetail(rows){
+  document.getElementById("detailTable").innerHTML = intervalTable(rows);
+}
+
+function renderDQ(){
+  const rows=dqFiltered();
+  const tbl=document.getElementById("dqTable");
+  if(!rows.length){ tbl.innerHTML='<div class="muted">no data quality flags</div>'; return; }
+  const head=["Repo","Issue","Category","Detail","Interval"];
+  const body=rows.map(r=>`<tr class="dq-warn">
+    <td>${r.repository.split("/")[1]}</td>
+    <td><a href="${r.issue_url||"#"}" target="_blank">#${r.issue_number||"?"}</a></td>
+    <td>${esc(r.category)}</td>
+    <td>${esc(r.detail)}</td>
+    <td class="small">${r.interval_id?"<"+r.interval_id.slice(0,8)+">":""}</td>
+    </tr>`).join("");
+  tbl.innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+}
+
+function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;", ">":"&gt;", '"':"&quot;"}[c])); }
+
+/* ---------- filter dropdowns ---------- */
+function seedFilters(){
+  repoNames = uniq(DATA.intervals.map(i=>i.repository));
+  triagerNames = uniq(DATA.intervals.map(i=>i.triage_username));
+  renderMultiPanels();
+  const months=uniq(DATA.intervals.map(i=>i.issue_creation_month));
+  const outs=uniq(DATA.intervals.map(i=>i.issue_outcome));
+  const msel=document.getElementById("fMonth");
+  msel.innerHTML = ["All"].concat(months).map(o=>`<option value="${o}">${o==="All"?o:monthLabel(o)}</option>`).join("");
+  const osel=document.getElementById("fOutcome");
+  osel.innerHTML = ["All"].concat(outs).map(o=>`<option value="${o}">${o==="All"?o:(OUTCOME_LABEL[o]||o)}</option>`).join("");
+  ["fMonth","fOutcome","fStatus"].forEach(id=>{
+    document.getElementById(id).addEventListener("change", e=>{
+      const key={fMonth:"month",fOutcome:"outcome",fStatus:"status"}[id];
+      state[key]=e.target.value; rebuild();
+    });
+  });
+}
+
+function rebuild(){
+  const rows=filtered();
+  renderSummary(rows); renderWorkload(rows); renderCycle(rows); renderDev(rows);
+  renderOutcomes(rows); renderAging(rows); renderDetail(rows); renderDQ();
+}
+
+/* wire segment buttons */
+document.querySelectorAll("#workloadSeg button").forEach(b=> b.addEventListener("click", ()=>{
+  document.querySelectorAll("#workloadSeg button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); workloadMode=b.dataset.m; rebuild(); }));
+document.querySelectorAll("#cycleSeg button").forEach(b=> b.addEventListener("click", ()=>{
+  document.querySelectorAll("#cycleSeg button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); cycleMode=b.dataset.m; renderCycle(filtered()); }));
+
+/* boot */
+document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("subtitle").textContent =
+    `Cohort ${DATA.meta.cohort_start} → ${DATA.meta.cohort_end} (UTC) · ` +
+    `${DATA.config.repositories.length} repos · team: ${DATA.config.triage_team.join(", ")}`;
+  document.getElementById("footCollected").textContent = DATA.meta.collected_at || "—";
+  seedFilters();
+  rebuild();
+  renderDQ();
+});
+</script>
+</body>
+</html>
