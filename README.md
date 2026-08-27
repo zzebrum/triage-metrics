@@ -101,6 +101,11 @@ analyze.py ──► data/processed/triage_ownership.json   (one row per ownersh
               ├── data/processed/metrics.json          (documented aggregates)
               ├── data/processed/data_quality.json     (flagged records)
               └── dashboard/dashboard.html             (self-contained, opens in a browser)
+
+/triage-quality (opencode command, LOCAL ONLY — §14)
+        ▼
+data/processed/triage_quality_report.{json,md}   (per-triager: non-English titles,
+                                                  unanswered follow-ups on closed issues)
 ```
 
 No database, no backend server, no hosted service, no React. The dashboard is a
@@ -499,10 +504,92 @@ triage_metrics/
 ├── make_mock_data.py           # offline demo dataset generator
 ├── requirements.txt
 ├── README.md
+├── .opencode/
+│   ├── agent/triage-analyst.md     # local triage-quality analysis agent (§14, /triage-quality)
+│   └── command/triage-quality.md   # `/triage-quality` opencode command
 ├── data/raw/                   # raw snapshots (GitHub)
-├── data/processed/             # triage_ownership.json, metrics.json, data_quality.json, …
+├── data/processed/             # triage_ownership.json, metrics.json, data_quality.json,
+│                               # + triage_quality_report.{json,md} (§14)
 ├── mock/raw_snapshot.json      # offline demo data
 ├── dashboard/template.html     # dashboard source (single HTML, embedded data)
 ├── dashboard/dashboard.html    # generated self-contained dashboard
-└── tests/test_classification.py# unit tests, offline (classification + monthly window)
+├── tests/test_classification.py# unit tests, offline (classification + monthly window)
+└── tests/test_report_data.py   # unit tests, offline (triage-quality data plumbing)
 ```
+
+---
+
+## 14. Local triage-quality workflow (`/triage-quality`)
+
+A **separate, deliberately local** analysis. Unlike the monthly metrics pipeline
+(which can run in CI/Pages), this workflow **runs only on your machine** — it is
+an opencode command, not a GitHub Action. It inspects the collected issues and
+gives the triage team a per-person review of two quality habits:
+
+1. **Issue titles should be in English** — the triager is expected to rename a
+   title (often written in its original language) to English during triage.
+2. **Unanswered follow-ups on closed issues** — when a user continues the
+   dialogue on an issue the triager already closed, the triager should still
+   reply.
+
+The report is written locally:
+
+```text
+data/processed/triage_quality_report.json   # machine-readable (source of truth)
+data/processed/triage_quality_report.md     # human-readable, one section per triager
+```
+
+### 14.1 Run it
+
+```bash
+# inside opencode, from the repo root:
+/triage-quality
+
+# optional filters (analyze everything when omitted):
+/triage-quality AdguardTeam/AdguardForAndroid   # one repository
+/triage-quality 2026-06                         # one creation month
+/triage-quality maxikuzmin                      # one triager
+/triage-quality mock                            # offline demo dataset
+```
+
+Prerequisites: run the pipeline first so the inputs exist (collect needs a
+read-only `GITHUB_TOKEN`; the mock path needs none):
+
+```bash
+python collect.py          # or: python make_mock_data.py  for the offline demo
+python analyze.py          # produces data/processed/triage_ownership.json (attribution)
+```
+
+The command is read-only: it reads `config.yaml`, the raw snapshot and the
+ownership data, computes locally, and writes **only** the two report files. It
+never touches GitHub and never sends anything anywhere (no Slack, no network).
+
+### 14.2 What is checked
+
+- **Non-English title** — a deterministic heuristic script detector. A title is
+  flagged when the majority of its letters belong to a non-Latin script
+  (Cyrillic, Greek, CJK, Arabic, Hebrew, Devanagari, Thai, Georgian, …), i.e.
+  non-Latin script share ≥ 0.5. A Latin-script title in a foreign language
+  (French/German written in a–z) is intentionally not flagged — that is a known
+  limitation of the heuristic.
+- **Unanswered follow-up (`unanswered_after_close`)** — the issue is closed and
+  the *last* human comment is by a non-triager and was posted **after** `closed_at`:
+  the user kept asking and no triager ever replied.
+- **Closed without reply (`closed_without_reply`)** — the issue is closed, the
+  last human comment is by a non-triager, and the triager left **zero** comments
+  on the issue at all.
+
+Bot accounts (logins ending in `[bot]` or listed in `bot_actors`) and bot-created
+issues are ignored, and the same cohort exclusions as `analyze.py`
+(`exclude_creators`, `exclude_labels`, `exclude_team_created_issues`,
+`exclude_repo_before`) are applied so the report matches the metrics population.
+Issues are attributed to the triager(s) who owned them (from
+`triage_ownership.json`).
+
+### 14.3 Data requirement: comment bodies
+
+The "unanswered follow-up" checks and the report's quoted snippets need the text
+of comments. `collect.py` **now stores each comment's `body`**; snapshots
+collected before that change have no bodies, so the report lists such issues
+with an empty snippet. Re-run `collect.py` after upgrading to get quotation in
+the report.

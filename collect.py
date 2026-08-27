@@ -229,13 +229,23 @@ def _normalize_events(raw_events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 def _normalize_comments(raw_comments: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Normalize an issue's comments, including their BODY text.
+
+    The body is what lets the triage-quality workflow (`.opencode/command/
+    triage-quality.md`) tell whether a follow-up on a closed issue is a real
+    unanswered question (and quote it in the report) rather than a bot ping or
+    a bare acknowledgement. Older snapshots collected without `body` stay
+    readable: the field is simply absent/None there.
+    """
     out = []
     for c in raw_comments:
+        body = c.get("body")
         out.append(
             {
                 "id": c.get("id"),
                 "created_at": c.get("created_at"),
                 "user": _login(c.get("user")),
+                "body": body if isinstance(body, str) else None,
             }
         )
     out.sort(key=lambda x: (x["created_at"] or "", x["id"] or 0))

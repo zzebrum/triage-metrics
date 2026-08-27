@@ -72,7 +72,7 @@ def make_issue(
     created: str,
     opener: str,
     events: List[Tuple[str, float, str, Optional[str], Optional[str]]],
-    comments: List[Tuple[str, float]],
+    comments: List[Tuple[str, float, Optional[str]]],
     state: str = "open",
     closed_at: Optional[str] = None,
     opener_is_triager: bool = False,
@@ -81,7 +81,10 @@ def make_issue(
 
     events: list of (event_type, offset_hours, actor, target, label)
       event_type in {assigned, unassigned, closed, reopened, labeled, unlabeled}
-    comments: list of (user, offset_hours)
+    comments: list of (user, offset_hours) or (user, offset_hours, body).
+      A 2-tuple is treated as body=None (backwards compatible with tests);
+      a 3-tuple carries the comment body text, which the triage-quality
+      workflow uses to quote unanswered follow-ups on closed issues.
     """
     idx = 1
     ev_list: List[Dict[str, Any]] = []
@@ -102,7 +105,18 @@ def make_issue(
         idx += 1
         ev_list.append(ev)
     ev_list.sort(key=lambda x: (x["created_at"], x["id"]))
-    com_list = [{"id": n, "created_at": t(iso_dt(created), off), "user": u} for n, (u, off) in enumerate(comments, 1)]
+    com_list = []
+    for n, cmt in enumerate(comments, 1):
+        u, off = cmt[0], cmt[1]
+        body = cmt[2] if len(cmt) > 2 else None
+        com_list.append(
+            {
+                "id": n,
+                "created_at": t(iso_dt(created), off),
+                "user": u,
+                "body": body,
+            }
+        )
     com_list.sort(key=lambda x: x["created_at"])
     short = repo.split("/")[1]
     return {
@@ -138,7 +152,7 @@ def build() -> Dict[str, Any]:
             ("assigned", 6.0, "maxikuzmin", DEVS[1], None),
             ("unassigned", 6.0, None, DEFAULTS[REPOS[0]], None),
         ],
-        [("maxikuzmin", 2.0)], state="open",
+        [("maxikuzmin", 2.0, "Thanks, I can reproduce it. Handing over to the team.")], state="open",
     ))
 
     # Scenario 2: initial routing (default did nothing) -> ESurina -> dev
@@ -152,7 +166,7 @@ def build() -> Dict[str, Any]:
             ("assigned", 6.0, "ESurina", DEVS[0], None),
             ("unassigned", 6.0, None, "ESurina", None),
         ],
-        [("ESurina", 1.0)], state="open",
+        [("ESurina", 1.0, "Could you describe the exact flow that triggers it?")], state="open",
     ))
 
     # Scenario 3: chain default -> Swen90 (routing) -> ESurina (handoff) -> dev
@@ -168,7 +182,10 @@ def build() -> Dict[str, Any]:
             ("assigned", 60.0, "ESurina", DEVS[0], None),
             ("unassigned", 60.0, None, "ESurina", None),
         ],
-        [("Swen90", 6.0), ("ESurina", 35.0)], state="open",
+        [
+            ("Swen90", 6.0, "Asking the reporter for a logcat capture."),
+            ("ESurina", 35.0, "Reproduces on Android 15, low priority."),
+        ], state="open",
     ))
 
     # Scenario 4: resolved directly by triager (default, with activity)
@@ -179,7 +196,7 @@ def build() -> Dict[str, Any]:
             ("assigned", 0.0, None, DEFAULTS[REPOS[1]], None),
             ("closed", 4.0, "maxikuzmin", None, None),
         ],
-        [("maxikuzmin", 1.0)], state="closed", closed_at="2026-05-28T16:00:00Z",
+        [("maxikuzmin", 1.0, "Yes — disable HTTPS filtering in the VPN settings.")], state="closed", closed_at="2026-05-28T16:00:00Z",
     ))
 
     # Scenario 5: unassigned end (default -> nobody)
@@ -398,6 +415,75 @@ def build() -> Dict[str, Any]:
             ("assigned", 1.0, "ESurina", "dev-agent", None),
         ],
         [("ESurina", 0.5)], state="open",
+    ))
+
+    # Scenario 23: NON-ENGLISH TITLE — the triage-quality workflow should flag
+    # this as a title the triager should have renamed to English during triage.
+    # Russian/Cyrillic title, default keeps it and resolves it.
+    issues[REPOS[1]].append(make_issue(
+        REPOS[1], 205, "Вирус блокирует установку AdGuard",
+        "2026-06-08T14:00:00Z", o2,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[1]], None),
+            ("closed", 4.0, "maxikuzmin", None, None),
+            ("unassigned", 4.0, None, DEFAULTS[REPOS[1]], None),
+        ],
+        [("maxikuzmin", 1.0, "Please tell me which site shows the warning.")],
+        state="closed", closed_at="2026-06-08T18:00:00Z",
+    ))
+
+    # Scenario 24: CLOSED issue, then the user CONTINUES THE DIALOGUE after
+    # closure and the triager never replies -> unanswered_after_close.
+    issues[REPOS[6]].append(make_issue(
+        REPOS[6], 32, "Settings window opens on the wrong monitor",
+        "2026-05-15T10:00:00Z", o1,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[6]], None),
+            ("closed", 5.0, "AlexandrPkhm", None, None),
+            ("unassigned", 5.0, None, DEFAULTS[REPOS[6]], None),
+        ],
+        [
+            ("AlexandrPkhm", 1.0, "Thanks for the report, fixed in the next beta."),
+            (o1, 6.0, "The fix did not help, the window still opens on monitor 2!"),
+        ],
+        state="closed", closed_at="2026-05-15T15:00:00Z",
+    ))
+
+    # Scenario 25: CLOSED issue, user continues after closure BUT the triager
+    # DID reply afterwards -> must NOT be flagged.
+    issues[REPOS[0]].append(make_issue(
+        REPOS[0], 108, "Battery drain after the latest update",
+        "2026-06-11T09:00:00Z", o3,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[0]], None),
+            ("closed", 8.0, "maxikuzmin", None, None),
+            ("unassigned", 8.0, None, DEFAULTS[REPOS[0]], None),
+        ],
+        [
+            ("maxikuzmin", 1.0, "Could you attach a battery usage report?"),
+            (o3, 2.0, "Attached, it drops about 20% overnight."),
+            ("maxikuzmin", 3.0, "Looks like a known issue, forwarded to devs."),
+            (o3, 9.0, "Any news on the battery problem?"),
+            ("maxikuzmin", 10.0, "It will be fixed in the next release."),
+        ],
+        state="closed", closed_at="2026-06-11T17:00:00Z",
+    ))
+
+    # Scenario 26: CLOSED issue where the triager closed a user question
+    # without EVER replying -> closed_without_reply (client continued dialogue
+    # in a closed issue, triager never answered).
+    issues[REPOS[4]].append(make_issue(
+        REPOS[4], 504, "Notifications disappear after a few hours",
+        "2026-06-22T13:00:00Z", o2,
+        [
+            ("assigned", 1.0, "oksenina", "oksenina", None),
+            ("closed", 20.0, "oksenina", None, None),
+            ("unassigned", 20.0, None, "oksenina", None),
+        ],
+        [
+            (o2, 2.0, "Everything was fine before the last update, please help."),
+        ],
+        state="closed", closed_at="2026-06-23T09:00:00Z",
     ))
 
     snapshot = {

@@ -18,11 +18,13 @@
           "closed_by": null,
           "comments": [
             {
+              "body": "Asking the reporter for a logcat capture.",
               "created_at": "2026-05-21T14:00:00Z",
               "id": 1,
               "user": "Swen90"
             },
             {
+              "body": "Reproduces on Android 15, low priority.",
               "created_at": "2026-05-22T19:00:00Z",
               "id": 2,
               "user": "ESurina"
@@ -105,6 +107,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": "Yes \u2014 disable HTTPS filtering in the VPN settings.",
               "created_at": "2026-05-28T13:00:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -147,6 +150,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-08-01T22:30:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -213,6 +217,55 @@
           "state_reason": null,
           "title": "Automated dependency notice (bot-created)",
           "user": "adguard-octobuddy[bot]"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-08T18:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Please tell me which site shows the warning.",
+              "created_at": "2026-06-08T15:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-08T14:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-08T14:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-08T18:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-08T18:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdGuardVPNForAndroid/issues/205",
+          "labels": [],
+          "number": 205,
+          "state": "closed",
+          "state_reason": null,
+          "title": "\u0412\u0438\u0440\u0443\u0441 \u0431\u043b\u043e\u043a\u0438\u0440\u0443\u0435\u0442 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0443 AdGuard",
+          "user": "reporter-beta"
         }
       ]
     },
@@ -227,6 +280,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-06-20T16:30:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -305,6 +359,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-07-31T12:15:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -343,6 +398,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": "Thanks, I can reproduce it. Handing over to the team.",
               "created_at": "2026-05-03T11:00:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -393,6 +449,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": "Could you describe the exact flow that triggers it?",
               "created_at": "2026-05-11T11:00:00Z",
               "id": 1,
               "user": "ESurina"
@@ -459,6 +516,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-07-15T11:30:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -515,6 +573,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-06-19T13:30:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -565,6 +624,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-02-12T11:30:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -639,6 +699,79 @@
           "state_reason": null,
           "title": "Buy followers fast!!! (spam)",
           "user": "spam-account"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-11T17:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Could you attach a battery usage report?",
+              "created_at": "2026-06-11T10:00:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            },
+            {
+              "body": "Attached, it drops about 20% overnight.",
+              "created_at": "2026-06-11T11:00:00Z",
+              "id": 2,
+              "user": "reporter-gamma"
+            },
+            {
+              "body": "Looks like a known issue, forwarded to devs.",
+              "created_at": "2026-06-11T12:00:00Z",
+              "id": 3,
+              "user": "maxikuzmin"
+            },
+            {
+              "body": "Any news on the battery problem?",
+              "created_at": "2026-06-11T18:00:00Z",
+              "id": 4,
+              "user": "reporter-gamma"
+            },
+            {
+              "body": "It will be fixed in the next release.",
+              "created_at": "2026-06-11T19:00:00Z",
+              "id": 5,
+              "user": "maxikuzmin"
+            }
+          ],
+          "created_at": "2026-06-11T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-11T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-11T17:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-11T17:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/108",
+          "labels": [],
+          "number": 108,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Battery drain after the latest update",
+          "user": "reporter-gamma"
         }
       ]
     },
@@ -653,6 +786,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-04-22T14:00:00Z",
               "id": 1,
               "user": "AlexandrPkhm"
@@ -685,6 +819,61 @@
           "state_reason": null,
           "title": "Window position not restored after reboot",
           "user": "reporter-gamma"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-05-15T15:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Thanks for the report, fixed in the next beta.",
+              "created_at": "2026-05-15T11:00:00Z",
+              "id": 1,
+              "user": "AlexandrPkhm"
+            },
+            {
+              "body": "The fix did not help, the window still opens on monitor 2!",
+              "created_at": "2026-05-15T16:00:00Z",
+              "id": 2,
+              "user": "reporter-alpha"
+            }
+          ],
+          "created_at": "2026-05-15T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "AlexandrPkhm",
+              "created_at": "2026-05-15T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "AlexandrPkhm",
+              "assignee": null,
+              "created_at": "2026-05-15T15:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "AlexandrPkhm",
+              "created_at": "2026-05-15T15:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/32",
+          "labels": [],
+          "number": 32,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Settings window opens on the wrong monitor",
+          "user": "reporter-alpha"
         }
       ]
     },
@@ -733,6 +922,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-06-02T10:00:00Z",
               "id": 1,
               "user": "maxikuzmin"
@@ -775,11 +965,13 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-06-10T09:00:00Z",
               "id": 1,
               "user": "maxikuzmin"
             },
             {
+              "body": null,
               "created_at": "2026-06-11T15:00:00Z",
               "id": 2,
               "user": "maxikuzmin"
@@ -858,6 +1050,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-03-05T14:00:00Z",
               "id": 1,
               "user": "pakifev"
@@ -924,6 +1117,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-04-10T09:30:00Z",
               "id": 1,
               "user": "ESurina"
@@ -978,6 +1172,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-07-12T12:00:00Z",
               "id": 1,
               "user": "oksenina"
@@ -1028,6 +1223,7 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-07-18T21:00:00Z",
               "id": 1,
               "user": "oksenina"
@@ -1078,16 +1274,19 @@
           "closed_by": null,
           "comments": [
             {
+              "body": null,
               "created_at": "2026-07-08T09:00:00Z",
               "id": 1,
               "user": "oksenina"
             },
             {
+              "body": null,
               "created_at": "2026-07-09T05:00:00Z",
               "id": 2,
               "user": "oksenina"
             },
             {
+              "body": null,
               "created_at": "2026-07-10T11:00:00Z",
               "id": 3,
               "user": "oksenina"
@@ -1144,6 +1343,55 @@
           "state_reason": null,
           "title": "Token refresh throws 401 intermittently",
           "user": "reporter-gamma"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-23T09:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Everything was fine before the last update, please help.",
+              "created_at": "2026-06-22T15:00:00Z",
+              "id": 1,
+              "user": "reporter-beta"
+            }
+          ],
+          "created_at": "2026-06-22T13:00:00Z",
+          "events": [
+            {
+              "actor": "oksenina",
+              "assignee": "oksenina",
+              "created_at": "2026-06-22T14:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "oksenina",
+              "assignee": null,
+              "created_at": "2026-06-23T09:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "oksenina",
+              "created_at": "2026-06-23T09:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/504",
+          "labels": [],
+          "number": 504,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Notifications disappear after a few hours",
+          "user": "reporter-beta"
         }
       ]
     }
