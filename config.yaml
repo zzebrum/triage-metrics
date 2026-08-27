@@ -184,5 +184,9 @@ api:
   per_page: 100
   request_timeout_seconds: 30
   max_retries: 3
-  # polite backoff between pages (seconds)
+  # polite backoff on 5xx / 429 server errors (seconds)
   backoff_seconds: 0.5
+  # small delay after EACH successful request (seconds) to avoid GitHub's
+  # secondary rate-limit / abuse detection, which fires on bursts of fast
+  # consecutive calls (most likely from CI runners). 0 disables.
+  request_delay_seconds: 0.2

@@ -79,6 +79,42 @@ def _sleep_backoff(base: float, attempt: int) -> None:
     time.sleep(min(base * (2 ** attempt), 30))
 
 
+def _throttle(base: Dict[str, Any]) -> None:
+    """Small inter-request delay (GitHub's secondary rate-limit / abuse
+    detection fires on BURSTS of fast consecutive calls — the collector used to
+    sleep only between repos, not between pages/issues, which is exactly what
+    tripped it from fast CI runners). Configurable via api.request_delay_seconds
+    (default 0.2s); 0 disables."""
+    delay = float(base.get("request_delay_seconds", 0.2))
+    if delay > 0:
+        time.sleep(delay)
+
+
+def _wait_for_limit(resp: requests.Response, request_timeout: int) -> float:
+    """How many seconds to sleep for a 403 before retrying.
+
+    GitHub returns 403 for two very different cases:
+      * PRIMARY rate limit  — X-RateLimit-Remaining=0; wait until X-RateLimit-Reset.
+      * SECONDARY limit     — abuse detection on bursty clients; sends a
+        `Retry-After` header (seconds) while X-RateLimit-Remaining is still
+        high. Sleeping until X-RateLimit-Reset here is wrong and can stall the
+        run for ~an hour; honor Retry-After instead (capped, never longer than
+        a few minutes).
+    """
+    remaining = resp.headers.get("X-RateLimit-Remaining", "?")
+    retry_after = resp.headers.get("Retry-After")
+    if retry_after is not None and str(remaining) != "0":
+        try:
+            wait = float(retry_after)
+        except (TypeError, ValueError):
+            wait = 30
+        return min(max(wait + 1, 1), 300)  # cap at 5 min
+    reset_ts = int(resp.headers.get("X-RateLimit-Reset", "0"))
+    if reset_ts:
+        return max(reset_ts - int(time.time()), 0) + 1
+    return 30
+
+
 def api_get(session: requests.Session, url: str, base, **kwargs) -> Dict[str, Any]:
     """GET one page; honors rate limits with retries. Read-only."""
     attempts = 0
@@ -86,20 +122,19 @@ def api_get(session: requests.Session, url: str, base, **kwargs) -> Dict[str, An
         attempts += 1
         resp = session.get(url, timeout=base["request_timeout_seconds"], **kwargs)
         if resp.status_code == 200:
+            _throttle(base)
             return resp.json()
         if resp.status_code == 403:
-            # rate-limit or abuse detection
-            reset_ts = int(resp.headers.get("X-RateLimit-Reset", "0"))
+            # primary rate limit OR secondary/abuse detection
             remaining = resp.headers.get("X-RateLimit-Remaining", "?")
-            wait = max(reset_ts - int(time.time()), 0) + 1 if reset_ts else 30
-            remaining_s = remaining
+            wait = _wait_for_limit(resp, base["request_timeout_seconds"])
             # Only consume the retry budget for rate-limit, not auth failure.
             if attempts > base["max_retries"]:
                 raise ApiError(
                     f"rate limited / forbidden after {attempts} tries "
-                    f"(remaining={remaining_s}); sleeping {wait}s next is not enough — abort"
+                    f"(remaining={remaining}); sleeping {wait}s next is not enough — abort"
                 )
-            print(f"   [rate-limit] remaining={remaining_s}; retry in {wait}s", file=sys.stderr)
+            print(f"   [rate-limit] remaining={remaining}; retry in {wait}s", file=sys.stderr)
             time.sleep(wait)
             continue
         if resp.status_code in (429, 500, 502, 503, 504):

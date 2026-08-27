@@ -960,3 +960,31 @@ def test_run_prefers_snapshot_window_over_config(tmp_path):
     assert metrics["meta"]["cohort_source"] == "snapshot"
     assert metrics["summary"]["issues_in_cohort"] == 1
 
+
+class _FakeResp:
+    def __init__(self, headers):
+        self.headers = headers
+
+
+def test_rate_limit_wait_handles_secondary_vs_primary():
+    """403 handling: honor Retry-After for secondary limits (still-high
+    remaining) instead of stalling until X-RateLimit-Reset; sleep until reset
+    only for a genuine primary limit (remaining=0)."""
+    import collect
+
+    # secondary / abuse detection: GET after GET bursts -> short wait
+    r = _FakeResp({"X-RateLimit-Remaining": "4992", "Retry-After": "3", "X-RateLimit-Reset": "9999999999"})
+    assert collect._wait_for_limit(r, 30) == 4  # Retry-After + 1, not reset-based
+    # Retry-After is capped (never sleeps for an hour on abuse detection)
+    r = _FakeResp({"X-RateLimit-Remaining": "4123", "Retry-After": "9000"})
+    assert collect._wait_for_limit(r, 30) <= 300
+    # primary limit exhausted -> wait until the reset timestamp
+    from datetime import datetime as _dt, timezone as _tz
+    import time as _time
+    soon = int(_time.time()) + 60
+    r = _FakeResp({"X-RateLimit-Remaining": "0", "X-RateLimit-Reset": str(soon)})
+    assert 59 <= collect._wait_for_limit(r, 30) <= 61
+    # no useful headers -> conservative short default
+    assert collect._wait_for_limit(_FakeResp({}), 30) == 30
+
+
