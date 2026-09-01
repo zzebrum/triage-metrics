@@ -1,342 +1,92 @@
 [
   {
     "repository": "AdguardTeam/AdGuardVPNExtension",
-    "issue_number": 243,
-    "issue_url": "https://github.com/AdguardTeam/AdGuardVPNExtension/issues/243",
-    "issue_title": "Add support for VPN profiles",
+    "issue_number": 252,
+    "issue_url": "https://github.com/AdguardTeam/AdGuardVPNExtension/issues/252",
+    "issue_title": "Separate Profile & General Settings",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
-    "repository": "AdguardTeam/AdguardAssistant",
-    "issue_number": 446,
-    "issue_url": "https://github.com/AdguardTeam/AdguardAssistant/issues/446",
-    "issue_title": "Selective element blocking not possible",
-    "interval_id": null,
-    "category": "non_triage_to_triage",
-    "detail": "issue passed from non-triage assignee 'windwak3r' to triager 'dmitriivqa39'",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3473,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3473",
-    "issue_title": "Add ROList to Filters in MV3",
+    "repository": "AdguardTeam/AdguardForAndroid",
+    "issue_number": 6172,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/6172",
+    "issue_title": "Enable HTTPS filtering for Titanium Browser",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3502,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3502",
-    "issue_title": "fix: harden Reuters Admiral anti-adblock rule",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3504,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3504",
-    "issue_title": "Upgrade actions and modify Slack notification setup",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3512,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3512",
-    "issue_title": "Title",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3513,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3513",
-    "issue_title": "Improve User Rules UI/UX with RulesEditor",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3531,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3531",
-    "issue_title": "Make the promo closable on the main popup",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3557,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3557",
-    "issue_title": "fix: 2 improvements across 2 files",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardBrowserExtension",
-    "issue_number": 3581,
-    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3581",
-    "issue_title": "Fix CI build schedule broken links",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardForMac",
-    "issue_number": 1698,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1698",
-    "issue_title": "Add Pause Protection with Auto Resume",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
-    "issue_number": 5966,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/5966",
-    "issue_title": "Implement \u00abBlock social buttons\u00bb feature to Annoyance blocking",
+    "issue_number": 6130,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/pull/6130",
+    "issue_title": "Remove 'Our plans' section from README",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
-    "issue_number": 6005,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/6005",
-    "issue_title": "Add automatic crash report sending",
+    "issue_number": 6135,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/pull/6135",
+    "issue_title": "Replace AdGuard logos and update image sources",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardForWindows",
-    "issue_number": 6038,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/6038",
-    "issue_title": "Disconnect error on czateria.interia.pl when SockDiver is enabled",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/AdguardForWindows",
-    "issue_number": 6055,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/6055",
-    "issue_title": "Move to using WinTun driver by default in release channel",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForiOS",
-    "issue_number": 2524,
-    "issue_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/2524",
-    "issue_title": "Support !#include syntax",
+    "issue_number": 2543,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/2543",
+    "issue_title": "Browser Content Filters are unavailable and not updating on some devices",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
-    "repository": "AdguardTeam/BrowserAssistant",
-    "issue_number": 146,
-    "issue_url": "https://github.com/AdguardTeam/BrowserAssistant/pull/146",
-    "issue_title": "Fix Firefox (Nightly) native messaging resilience and popup hang on macOS",
+    "repository": "AdguardTeam/AdguardForiOS",
+    "issue_number": 2545,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/2545",
+    "issue_title": "Surfshark DNS can't be added as custom server",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/ContentBlocker",
-    "issue_number": 505,
-    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/issues/505",
-    "issue_title": "\u041a\u0430\u043a \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u043f\u043e\u043c\u0435\u043d\u044f\u0442\u044c?",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
-    "issue_number": 506,
-    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/issues/506",
-    "issue_title": "\u041e\u0448\u0438\u0431\u043a\u0430 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f?",
+    "issue_number": 595,
+    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/pull/595",
+    "issue_title": "Rework issue templates",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/ContentBlocker",
-    "issue_number": 507,
-    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/issues/507",
-    "issue_title": "Problemas",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/ContentBlocker",
-    "issue_number": 508,
-    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/issues/508",
-    "issue_title": "Problemas",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "AdguardTeam/ContentBlocker",
-    "issue_number": 509,
-    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/issues/509",
-    "issue_title": "Problemas",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 35,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/35",
-    "issue_title": "Add advanced server settings in Create/Edit Server",
+    "issue_number": 72,
+    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/72",
+    "issue_title": "[Bug]: Trouble establishing the connection when Server address is defined as domain with Android Private DNS enabled",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 38,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/38",
-    "issue_title": "[Bug]: Always-on VPN feature is not working on Huawei EMUI 14 device",
+    "issue_number": 73,
+    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/73",
+    "issue_title": "Enhance README with macOS and platform details",
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 47,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/47",
-    "issue_title": "Add ability to share and duplicate servers",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 48,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/48",
-    "issue_title": "iOS: Add an option to allow turning off TrustTunnel from Control Center",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 49,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/49",
-    "issue_title": "When adding server is not possible, jump to the first erroneous field",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 53,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/53",
-    "issue_title": "Branch at commit 0057f59 = working with samsung buttons",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 55,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/55",
-    "issue_title": "Fix display name and DNS upstreams dropped during deep-link import",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 57,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/57",
-    "issue_title": "Add Quick Actions for Samsung Routines Handling",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 67,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/67",
-    "issue_title": "Please add UI macOS client",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 68,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/68",
-    "issue_title": "Add in-app log export and privacy controls",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 69,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/issues/69",
-    "issue_title": "Add app icon in notification shade bar",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
-  },
-  {
-    "repository": "TrustTunnel/TrustTunnelFlutterClient",
-    "issue_number": 70,
-    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/70",
-    "issue_title": "feat(android): implement split tunneling (per-app proxy) UI",
-    "interval_id": null,
-    "category": "no_triage_interval",
-    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-08-27T14:11:37+00:00"
+    "data_collected_at": "2026-09-01T07:55:04+00:00"
   }
 ]
