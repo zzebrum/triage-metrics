@@ -772,6 +772,244 @@
           "state_reason": null,
           "title": "Battery drain after the latest update",
           "user": "reporter-gamma"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-15T14:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "I want to disable AdGuard on example.com only.",
+              "created_at": "2026-06-15T10:00:00Z",
+              "id": 1,
+              "user": "reporter-alpha"
+            },
+            {
+              "body": "Add example.com to the allow list in the filtering log.",
+              "created_at": "2026-06-15T12:00:00Z",
+              "id": 2,
+              "user": "reporter-gamma"
+            }
+          ],
+          "created_at": "2026-06-15T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-15T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-15T14:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-15T14:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/109",
+          "labels": [],
+          "number": 109,
+          "state": "closed",
+          "state_reason": null,
+          "title": "How do I turn off filtering for one site?",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-18T15:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Battery drains about 20% overnight, is there a setting?",
+              "created_at": "2026-06-18T11:00:00Z",
+              "id": 1,
+              "user": "reporter-beta"
+            },
+            {
+              "body": "Check Settings > Battery; disable background refresh.",
+              "created_at": "2026-06-18T12:00:00Z",
+              "id": 2,
+              "user": "reporter-gamma"
+            },
+            {
+              "body": "Thanks, that fixed it.",
+              "created_at": "2026-06-18T13:00:00Z",
+              "id": 3,
+              "user": "reporter-beta"
+            }
+          ],
+          "created_at": "2026-06-18T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-18T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-18T15:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-18T15:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/110",
+          "labels": [],
+          "number": 110,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Why does my battery drop overnight?",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-25T15:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Added a filter list entry, please test.",
+              "created_at": "2026-06-25T14:54:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            },
+            {
+              "body": "Still not blocked, I cleared the cache.",
+              "created_at": "2026-06-25T16:00:00Z",
+              "id": 2,
+              "user": "reporter-beta"
+            },
+            {
+              "body": "The rule takes up to 24h to propagate; I verified it is active.",
+              "created_at": "2026-06-25T17:00:00Z",
+              "id": 3,
+              "user": "maxikuzmin"
+            },
+            {
+              "body": "Ok, thanks!",
+              "created_at": "2026-06-25T18:00:00Z",
+              "id": 4,
+              "user": "reporter-beta"
+            }
+          ],
+          "created_at": "2026-06-25T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-25T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-25T15:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-25T15:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/111",
+          "labels": [],
+          "number": 111,
+          "state": "closed",
+          "state_reason": null,
+          "title": "How do I block one specific website?",
+          "user": "reporter-beta"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-27T13:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Use Settings > Filters > the kebab menu > Export.",
+              "created_at": "2026-06-27T12:30:00Z",
+              "id": 1,
+              "user": "maxikuzmin"
+            },
+            {
+              "body": "Thanks, that worked.",
+              "created_at": "2026-06-27T13:30:00Z",
+              "id": 2,
+              "user": "reporter-gamma"
+            }
+          ],
+          "created_at": "2026-06-27T09:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-27T09:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-27T13:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-27T13:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForAndroid/issues/112",
+          "labels": [],
+          "number": 112,
+          "state": "closed",
+          "state_reason": null,
+          "title": "How do I export my filter rules?",
+          "user": "reporter-gamma"
         }
       ]
     },
@@ -1035,6 +1273,55 @@
           "state": "open",
           "state_reason": null,
           "title": "Ad blocking misses some XHR requests",
+          "user": "reporter-alpha"
+        },
+        {
+          "assignee": null,
+          "assignees": [],
+          "closed_at": "2026-06-28T13:00:00Z",
+          "closed_by": null,
+          "comments": [
+            {
+              "body": "Never mind \u2014 saving via the profile screen works, thanks anyway.",
+              "created_at": "2026-06-28T12:00:00Z",
+              "id": 1,
+              "user": "reporter-alpha"
+            }
+          ],
+          "created_at": "2026-06-28T10:00:00Z",
+          "events": [
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-28T10:00:00Z",
+              "event": "assigned",
+              "id": 1,
+              "label": null
+            },
+            {
+              "actor": "maxikuzmin",
+              "assignee": null,
+              "created_at": "2026-06-28T13:00:00Z",
+              "event": "closed",
+              "id": 2,
+              "label": null
+            },
+            {
+              "actor": null,
+              "assignee": "maxikuzmin",
+              "created_at": "2026-06-28T13:00:00Z",
+              "event": "unassigned",
+              "id": 3,
+              "label": null
+            }
+          ],
+          "events_collected_at": "2026-08-02T00:00:00Z",
+          "html_url": "https://github.com/AdguardTeam/AdguardForiOS/issues/303",
+          "labels": [],
+          "number": 303,
+          "state": "closed",
+          "state_reason": null,
+          "title": "Settings screen does not open",
           "user": "reporter-alpha"
         }
       ]

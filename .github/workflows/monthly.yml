@@ -18,12 +18,23 @@ on:
         description: "Config file (use config-smoke.yaml for a fast 3-repo smoke test)"
         type: string
         default: config.yaml
+      mode:
+        description: "Cohort mode: since (cumulative, default) | last (single period) | config (explicit dates)"
+        type: choice
+        options:
+          - since
+          - last
+          - config
+        default: since
+      since:
+        description: "With mode=since: fixed anchor date YYYY-MM-DD (default: cohort.since_date)"
+        type: string
       months_back:
-        description: Full calendar months to gather (default 1 = previous month)
+        description: "With mode=last: full calendar months to gather (default 1 = previous month)"
         type: number
         default: 1
       as_of:
-        description: "Reference date YYYY-MM-DD (default: today, UTC)"
+        description: "Reference/eol date YYYY-MM-DD (default: today, UTC) — end of the window for since/last"
         type: string
 
 permissions:
@@ -49,15 +60,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect last period (read-only GitHub API)
+      - name: Collect (read-only GitHub API, cumulative window)
         id: collect
         env:
           GITHUB_TOKEN: ${{ secrets.GH_READ_TOKEN }}
           CFG: ${{ inputs.config }}
+          MODE: ${{ inputs.mode }}
+          SINCE: ${{ inputs.since }}
           MB: ${{ inputs.months_back }}
           AS_OF: ${{ inputs.as_of }}
         run: |
-          ARGS=(--config "${CFG:-config.yaml}" --cohort last --months-back "${MB:-1}")
+          ARGS=(--config "${CFG:-config.yaml}" --cohort "${MODE:-since}")
+          if [ "${MODE:-since}" = "last" ]; then ARGS+=(--months-back "${MB:-1}"); fi
+          if [ -n "${SINCE:-}" ] && [ "${MODE:-since}" = "since" ]; then ARGS+=(--since "$SINCE"); fi
           if [ -n "${AS_OF:-}" ]; then ARGS+=(--as-of "$AS_OF"); fi
           python collect.py "${ARGS[@]}"
 

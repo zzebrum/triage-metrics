@@ -504,12 +504,13 @@ triage_metrics/
 ├── make_mock_data.py           # offline demo dataset generator
 ├── requirements.txt
 ├── README.md
-├── .opencode/
-│   ├── agent/triage-analyst.md     # local triage-quality analysis agent (§14, /triage-quality)
-│   └── command/triage-quality.md   # `/triage-quality` opencode command
+└── .opencode/                  # LOCAL-ONLY (git-ignored, never in the repo);
+    ├── agent/triage-analyst.md     # `/triage-quality` analysis agent     \
+    └── command/triage-quality.md   # `/triage-quality` opencode command   / keep per
+                                    # machine, do not commit
 ├── data/raw/                   # raw snapshots (GitHub)
 ├── data/processed/             # triage_ownership.json, metrics.json, data_quality.json,
-│                               # + triage_quality_report.{json,md} (§14)
+│                               # + triage_quality_report.{json,md} (§14, git-ignored)
 ├── mock/raw_snapshot.json      # offline demo data
 ├── dashboard/template.html     # dashboard source (single HTML, embedded data)
 ├── dashboard/dashboard.html    # generated self-contained dashboard
@@ -523,8 +524,11 @@ triage_metrics/
 
 A **separate, deliberately local** analysis. Unlike the monthly metrics pipeline
 (which can run in CI/Pages), this workflow **runs only on your machine** — it is
-an opencode command, not a GitHub Action. It inspects the collected issues and
-gives the triage team a per-person review of two quality habits:
+an opencode command, not a GitHub Action. The command and the `triage-analyst`
+agent live under **`.opencode/`, which is git-ignored and never committed or
+pushed** (they're defined for this working copy; create them per machine). It
+inspects the collected issues and gives the triage team a per-person review of
+two quality habits:
 
 1. **Issue titles should be in English** — the triager is expected to rename a
    title (often written in its original language) to English during triage.
@@ -536,8 +540,16 @@ The report is written locally:
 
 ```text
 data/processed/triage_quality_report.json   # machine-readable (source of truth)
-data/processed/triage_quality_report.md     # human-readable, one section per triager
+data/processed/triage_quality_report.md     # copy-paste sheet: @slack header + link lists
 ```
+
+The Markdown is a lean, Slack-ready sheet: one `## @slack_handle (github_login)`
+section per flagged triager, and under each just bullet lists of `issue_url`
+links — `Non-English titles`, `Unanswered issues after close` (both closed-issue
+flags combined) and `Community answered (ok)`. Triagers are addressed by their
+**Slack handle** (see `slack_mapping` below) so a line like `@m.kuzmin` plus the
+links can be pasted straight into Slack. All detail (rationale, snippets,
+reasons) stays in the JSON.
 
 ### 14.1 Run it
 
@@ -564,6 +576,10 @@ The command is read-only: it reads `config.yaml`, the raw snapshot and the
 ownership data, computes locally, and writes **only** the two report files. It
 never touches GitHub and never sends anything anywhere (no Slack, no network).
 
+The two report files are **git-ignored** (`data/processed/triage_quality_report.
+{json,md}`) — they are awareness tools for the team, generated locally and never
+pushed to the repository.
+
 ### 14.2 What is checked
 
 - **Non-English title** — a deterministic heuristic script detector. A title is
@@ -572,12 +588,37 @@ never touches GitHub and never sends anything anywhere (no Slack, no network).
   non-Latin script share ≥ 0.5. A Latin-script title in a foreign language
   (French/German written in a–z) is intentionally not flagged — that is a known
   limitation of the heuristic.
-- **Unanswered follow-up (`unanswered_after_close`)** — the issue is closed and
-  the *last* human comment is by a non-triager and was posted **after** `closed_at`:
-  the user kept asking and no triager ever replied.
+- **Unanswered follow-up (`unanswered_after_close`)** — the issue is closed,
+  someone continued the dialogue **after** `closed_at`, and the **earliest**
+  such follow-up was **never followed by a triager comment** — the first
+  question in the continued dialogue went unanswered by the triage team. A
+  triager reply later in the thread counts as engaging (the issue is not
+  flagged, even if a user then has the last word).
 - **Closed without reply (`closed_without_reply`)** — the issue is closed, the
   last human comment is by a non-triager, and the triager left **zero** comments
   on the issue at all.
+
+Both checks run a **context double-check** before flagging (so healthy threads
+are never reported as violations), based on a semantic review of the whole
+thread when comment bodies are present:
+1. If the **last human comment is by a third party** (not the topic starter),
+   the thread ended on a community message — normally the answer — and a silent
+   triager close is fine → moved to `community_answered_skipped` (reason
+   `last_commenter_not_issue_author`).
+2. If a **community member answered** the question meanwhile → moved to
+   `community_answered_skipped` (reason `answered_by_community`).
+3. If the continued dialogue / last word is only an **acknowledgment** — "thanks",
+   "works now" — with no new question, nothing needs a reply → moved to
+   `no_reply_needed` (reason `acknowledgment_only`). A thank-you after a triager
+   answered is NOT an unanswered issue.
+4. Only a genuine, still-unanswered `question_or_report` is flagged
+   (`unanswered_after_close` / `closed_without_reply`).
+5. When comment bodies are unavailable (old snapshot) the structural rule 1
+   still applies; remaining candidates are flagged with a "bodies unavailable,
+   re-check manually" note, because a thank-you may be hiding there.
+
+Skipped issues are kept in the report under "Community answered (ok)" and
+"No reply needed (thanks)" so the filtering is transparent and auditable.
 
 Bot accounts (logins ending in `[bot]` or listed in `bot_actors`) and bot-created
 issues are ignored, and the same cohort exclusions as `analyze.py`
@@ -593,3 +634,13 @@ of comments. `collect.py` **now stores each comment's `body`**; snapshots
 collected before that change have no bodies, so the report lists such issues
 with an empty snippet. Re-run `collect.py` after upgrading to get quotation in
 the report.
+
+### 14.4 Slack handles (private, local-only)
+
+The Markdown report addresses triagers by Slack handle (`## @m.kuzmin`) so a
+line plus its links can be pasted straight into Slack. The GitHub→Slack map
+lives in a **private, git-ignored** file `slack_mapping.local.yaml` at the repo
+root (git login → Slack username, **without** `@`); it is never committed or
+pushed. Create it once on your machine and fill in the real handles — values in
+the shipped file are placeholders. Triagers without a mapping fall back to
+`@<github login>`. This map is purely cosmetic: attribution never uses it.

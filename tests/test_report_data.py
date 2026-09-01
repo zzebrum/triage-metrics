@@ -91,3 +91,41 @@ def test_mock_snapshot_carries_comment_bodies_and_quality_scenarios():
     assert 108 in by_number
     # scenario 26: closed issue, triager never replied at all -> closed_without_reply
     assert 504 in by_number
+    # scenarios 27/28: community member answered the topic starter, triager closed
+    # silently -> the context double-check must clear these, NOT flag them
+    for n in (109, 110):
+        (repo, issue), = by_number[n]
+        assert issue["state"] == "closed"
+        others = [c for c in issue["comments"] if c["user"] != issue["user"]]
+        topic_starter_last = issue["comments"][-1]["user"] == issue["user"]
+        assert others, f"{repo}#{n} should have a non-author (helper) comment"
+        # scenario 109: helper has the last word (auto-clear by rule 1)
+        if n == 109:
+            assert not topic_starter_last
+        # scenario 110: starter has the last word but the helper's answer exists
+        if n == 110:
+            assert topic_starter_last
+            assert any((c["body"] or "") for c in others)
+    # scenario 29: dialogue continued after close AND the triager replied later in
+    # the thread (user just has the last word) -> must NOT be flagged (refined
+    # unanswered_after_close rule, mirrors real issue #6140)
+    (repo29, issue29), = by_number[111]
+    assert issue29["state"] == "closed"
+    c = issue29["comments"]
+    assert c[-1]["user"] == issue29["user"], "user should have the last word"
+    post_close_followup = [x for x in c if x["created_at"] > issue29["closed_at"] and x["user"] == issue29["user"]]
+    assert post_close_followup, "user should continue after close"
+    triager_after = [x for x in c if x["user"] != issue29["user"]
+                     and x["created_at"] > post_close_followup[0]["created_at"]]
+    assert triager_after, "triager should reply after the post-close follow-up"
+    # scenario 30: user thanks after close (acknowledgment only) -> no_reply_needed
+    (repo30, issue30), = by_number[112]
+    body = issue30["comments"][-1]["body"]
+    assert body and ("thank" in body.lower()), "scenario 30 should end with a thank-you"
+    assert "?" not in body, "scenario 30 thank-you must not ask a question"
+    # scenario 31: closed silently, only an acknowledgment -> no_reply_needed (not CWR)
+    (repo31, issue31), = by_number[303]
+    last31 = issue31["comments"][-1]
+    assert last31["user"] == issue31["user"], "scenario 31 last word is the author"
+    assert (last31["body"] or "").strip(), "scenario 31 should carry a comment body"
+    assert "thanks" in last31["body"].lower(), "scenario 31 should be an acknowledgment"

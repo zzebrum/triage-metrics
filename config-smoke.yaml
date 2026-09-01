@@ -28,10 +28,12 @@ triage_team:
   - KolbasovAnton
 
 cohort:
-  start_date: 2026-02-01
-  end_date: 2026-08-01
-  mode: config           # CLI --cohort last overrides this for smoke runs
-  months_back: 1
+  # Smoke runs are quick: mode last = just the previous month on 3 repos.
+  # (The monthly workflow defaults to `since` for production; pass mode=last
+  # in the workflow's Run-workflow inputs when smoke-testing.)
+  mode: last             # config | last | since (last keeps smoke fast)
+  since_date: 2026-08-01
+  months_back: 1         # used only when mode: last
   include_aug_1: false
 
 default_assignee_history:

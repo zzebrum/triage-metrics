@@ -486,6 +486,99 @@ def build() -> Dict[str, Any]:
         state="closed", closed_at="2026-06-23T09:00:00Z",
     ))
 
+    # Scenario 27: CLOSED with zero triager comments, but a THIRD PARTY had the
+    # last word (helped the topic starter). The context double-check in the
+    # triage-quality workflow must NOT flag this as closed_without_reply — the
+    # community member answered, so a silent triager close is fine.
+    issues[REPOS[0]].append(make_issue(
+        REPOS[0], 109, "How do I turn off filtering for one site?",
+        "2026-06-15T09:00:00Z", o1,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[0]], None),
+            ("closed", 5.0, "maxikuzmin", None, None),
+            ("unassigned", 5.0, None, DEFAULTS[REPOS[0]], None),
+        ],
+        [
+            (o1, 1.0, "I want to disable AdGuard on example.com only."),
+            (o3, 3.0, "Add example.com to the allow list in the filtering log."),
+        ],
+        state="closed", closed_at="2026-06-15T14:00:00Z",
+    ))
+
+    # Scenario 28: like 27 but the TOPIC STARTER has the last word (a "thanks"
+    # after the helper's answer). With bodies available the double-check sees
+    # the answer was given and must NOT flag it either.
+    issues[REPOS[0]].append(make_issue(
+        REPOS[0], 110, "Why does my battery drop overnight?",
+        "2026-06-18T10:00:00Z", o2,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[0]], None),
+            ("closed", 5.0, "maxikuzmin", None, None),
+            ("unassigned", 5.0, None, DEFAULTS[REPOS[0]], None),
+        ],
+        [
+            (o2, 1.0, "Battery drains about 20% overnight, is there a setting?"),
+            (o3, 2.0, "Check Settings > Battery; disable background refresh."),
+            (o2, 3.0, "Thanks, that fixed it."),
+        ],
+        state="closed", closed_at="2026-06-18T15:00:00Z",
+    ))
+
+    # Scenario 29: user continues the dialogue AFTER close and the TRIAGER DOES
+    # reply later in the thread; the user just happens to have the last word.
+    # Mirrors real issue #6140: the refined rule must NOT flag this as
+    # unanswered_after_close (the earliest post-close follow-up WAS answered).
+    issues[REPOS[0]].append(make_issue(
+        REPOS[0], 111, "How do I block one specific website?",
+        "2026-06-25T10:00:00Z", o2,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[0]], None),
+            ("closed", 5.0, "maxikuzmin", None, None),
+            ("unassigned", 5.0, None, DEFAULTS[REPOS[0]], None),
+        ],
+        [
+            ("maxikuzmin", 4.9, "Added a filter list entry, please test."),
+            (o2, 6.0, "Still not blocked, I cleared the cache."),
+            ("maxikuzmin", 7.0, "The rule takes up to 24h to propagate; I verified it is active."),
+            (o2, 8.0, "Ok, thanks!"),
+        ],
+        state="closed", closed_at="2026-06-25T15:00:00Z",
+    ))
+
+    # Scenario 30: user THANKS after close (acknowledgment, no new ask), triager
+    # had already answered -> must go to no_reply_needed, never "unanswered".
+    # Mirrors the real #6147 thank-you message the user pointed at.
+    issues[REPOS[0]].append(make_issue(
+        REPOS[0], 112, "How do I export my filter rules?",
+        "2026-06-27T09:00:00Z", o3,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[0]], None),
+            ("closed", 4.0, "maxikuzmin", None, None),
+            ("unassigned", 4.0, None, DEFAULTS[REPOS[0]], None),
+        ],
+        [
+            ("maxikuzmin", 3.5, "Use Settings > Filters > the kebab menu > Export."),
+            (o3, 4.5, "Thanks, that worked."),
+        ],
+        state="closed", closed_at="2026-06-27T13:00:00Z",
+    ))
+
+    # Scenario 31: closed with ZERO triager comments, but the only human comment
+    # is an acknowledgment ("no reply needed") -> must NOT be closed_without_reply.
+    issues[REPOS[2]].append(make_issue(
+        REPOS[2], 303, "Settings screen does not open",
+        "2026-06-28T10:00:00Z", o1,
+        [
+            ("assigned", 0.0, None, DEFAULTS[REPOS[2]], None),
+            ("closed", 3.0, "maxikuzmin", None, None),
+            ("unassigned", 3.0, None, DEFAULTS[REPOS[2]], None),
+        ],
+        [
+            (o1, 2.0, "Never mind — saving via the profile screen works, thanks anyway."),
+        ],
+        state="closed", closed_at="2026-06-28T13:00:00Z",
+    ))
+
     snapshot = {
         "meta": {
             "collected_at": COLLECTED_AT,

@@ -12,6 +12,22 @@ __pycache__/
 .env
 env.sh
 
+# Private, local-only Slack handle map for /triage-quality (GitHub -> Slack).
+# Kept out of the repo so team handles never get pushed.
+slack_mapping.local.yaml
+
+# Local-only opencode workflow: the /triage-quality command + triage-analyst
+# agent define a workflow for THIS machine and are intentionally not part of
+# the repository, so they are never committed or pushed.
+.opencode/
+
 # Raw snapshots: keep only the canonical latest in git; timestamped historical
 # copies (several MB each) stay local so repo history does not bloat over time.
 data/raw/raw_snapshot-*.json
+
+# Triage-quality reports: generated locally by the /triage-quality workflow,
+# intended for team awareness only — never committed or pushed.
+data/processed/triage_quality_report.json
+data/processed/triage_quality_report.md
+data/processed/triage_quality_report-*.json
+data/processed/triage_quality_report-*.md

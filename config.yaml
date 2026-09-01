@@ -4,22 +4,22 @@
 #
 # Cohort: issues whose `created_at` falls in the half-open window
 #   [start_date, end_date)
-# i.e. created_at >= 2026-02-01T00:00:00Z AND created_at < 2026-08-01T00:00:00Z
-# = exactly February..July 2026 (six full months).
+# = exactly February..July 2026 (six full months), or with the cumulative
+# `since` mode (default below): [since_date, <first day of current month>) —
+# the anchor stays fixed and the END advances each month, so the dataset
+# ACCUMULATES month over month instead of being replaced.
 # An issue created inside the cohort stays in the cohort even if completed later.
 #
-# MONTHLY RUNS ("run once a month, gather only the last period"): instead of
-# hand-editing start_date/end_date every month, set `mode: last` and run
-# `python collect.py` (or `python collect.py --cohort last`). The collector
-# then auto-computes the window = the previous `months_back` FULL calendar
-# months up to today and records it in the raw snapshot's meta; analyze.py
-# always analyzes exactly the window the collector recorded. Example:
-#   mode: last
-#   months_back: 1            # run in August  -> July 2026
-#                              # months_back: 6 -> Feb..Jul 2026 (current setup)
-# A given month's snapshot is overwritten each run (idempotent).
-# You can backfill / test deterministically with:
-#   python collect.py --cohort last --as-of 2026-08-01 --months-back 1
+# MONTHLY RUNS — CUMULATIVE ("each month is added to the previous data"):
+# The default is `mode: since` with a fixed `since_date` anchor. Every run
+# collects the whole history from the anchor through the last completed month
+# (fresh from GitHub every time), so older months' still-open issues keep their
+# up-to-date state and the dashboard grows Feb..Aug, Feb..Sep, ... with no
+# config edits. `analyze.py` always analyzes exactly the window the collector
+# recorded. To backfill / run deterministically:
+#   python collect.py --cohort since --since 2026-02-01 --as-of 2026-09-01
+# For a quick single-month run (e.g. the 3-repo smoke config):
+#   python collect.py --cohort last --months-back 1
 
 repositories:
   - AdguardTeam/AdguardForAndroid
@@ -57,16 +57,17 @@ triage_team:
 # first analysis. If any repository's default changed BETWEEN Feb and Jul,
 # add extra `effective_from` entries here (analyzer picks the latest <=created).
 cohort:
+  # CUMULATIVE anchor is the default monthly mode (see header comment): the
+  # window is [since_date, <first day of current month>) — the anchor never
+  # moves, the end advances each month, so every run ADDS the new period to
+  # the previous data. CLI overrides:
+  #   --cohort config|last|since, --since YYYY-MM-DD, --months-back N, --as-of YYYY-MM-DD
+  mode: since            # config | last | since  (since = cumulative default)
+  since_date: 2026-02-01 # used when mode: since (anchor; end auto-advances)
+  months_back: 1         # used only when mode: last
+  # Legacy explicit window; ignored when mode is `since`/`last`:
   start_date: 2026-02-01
   end_date: 2026-08-01
-  # Monthly-run mechanism — see the header comment.
-  # Set `mode: last` to auto-compute the window as the previous `months_back`
-  # full calendar months instead of the explicit dates above. The collector
-  # records the computed window in the snapshot meta; analyze.py always uses
-  # the window the collector recorded. CLI overrides:
-  #   --cohort config|last, --months-back N, --as-of YYYY-MM-DD
-  mode: config           # config | last
-  months_back: 6         # used only when mode: last
   # The window is half-open: [start_date, end_date). This gives exactly
   # Feb..Jul. Change to include_aug_1: true to include 2026-08-01 too.
   include_aug_1: false

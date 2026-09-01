@@ -280,19 +280,26 @@ def _effective_cohort(
     mode: Optional[str] = None,
     months_back: Optional[int] = None,
     as_of: Optional[str] = None,
+    since: Optional[str] = None,
 ) -> Tuple[datetime, datetime, Dict[str, Any]]:
     """Resolve the cohort window actually collected, plus audit metadata.
 
     Returns (start, end, cohort_meta_extra).
 
-    mode ∈ {"config", "last"} — an explicit CLI value wins over
+    mode ∈ {"config", "last", "since"} — an explicit CLI value wins over
     `cohort.mode` in config.yaml (default "config" = explicit start/end dates).
 
-    mode == "last" is the once-a-month mechanism: the window is the previous
-    `months_back` FULL calendar months (month boundaries, half-open), computed
-    relative to `as_of` (an optional YYYY-MM-DD reference; defaults to now).
-    This lets a monthly cron run gather only the last period without hand-editing
-    config.yaml — and without re-fetching the whole history from the beginning.
+    mode == "last" is the plain once-a-month mechanism: the window is the
+    previous `months_back` FULL calendar months (month boundaries, half-open),
+    computed relative to `as_of` (an optional YYYY-MM-DD reference; defaults to
+    now). Use it for quick/small collection (e.g. the 3-repo smoke config).
+
+    mode == "since" makes the dataset CUMULATIVE: start stays fixed at the
+    anchor date (CLI `--since`, else `cohort.since_date` in config) and the
+    end advances to the first day of the month containing `as_of` (default
+    now), so each monthly run ADDS the new period to the previous months
+    instead of replacing them. This is the default monthly mode: the dashboard
+    keeps the full history and only the end boundary moves forward.
 
     `include_aug_1` (config) is honored uniformly: when true the end boundary is
     extended to the last second of the boundary day.
@@ -309,6 +316,16 @@ def _effective_cohort(
             "cohort_mode": "last",
             "cohort_months_back": int(months_back),
             "cohort_as_of_ref": reference.isoformat(timespec="seconds"),
+        }
+    elif mode == "since":
+        anchor = parse_utc(since) if since else parse_utc(cohort.get("since_date"))
+        reference = parse_utc(as_of) if as_of else datetime.now(timezone.utc)
+        end = reference.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        start = anchor
+        extra: Dict[str, Any] = {
+            "cohort_mode": "since",
+            "cohort_since": anchor.isoformat(timespec="seconds"),
+            "cohort_end_ref": reference.isoformat(timespec="seconds"),
         }
     else:
         start = parse_utc(cohort["start_date"])
@@ -396,12 +413,14 @@ def main() -> int:
     ap.add_argument("--config", default="config.yaml")
     ap.add_argument("--out-dir", default="data/raw")
     ap.add_argument(
-        "--cohort", default=None, choices=["config", "last"],
+        "--cohort", default=None, choices=["config", "last", "since"],
         help="which cohort window to collect. 'config' = the explicit "
              "cohort.start_date/end_date in config.yaml (default). 'last' = the "
-             "previous full calendar month(s) — the once-a-month mechanism — so a "
-             "monthly run gathers the last period instead of re-fetching from the "
-             "beginning. CLI wins over cohort.mode in config.yaml.",
+             "previous full calendar month(s). 'since' = CUMULATIVE from the fixed "
+             "anchor (cohort.since_date / --since) to the last completed month — "
+             "the default monthly mode, so each run ADDS the new period to the "
+             "previous data instead of replacing it. CLI wins over cohort.mode in "
+             "config.yaml.",
     )
     ap.add_argument(
         "--months-back", type=int, default=None,
@@ -409,10 +428,16 @@ def main() -> int:
              "(default: cohort.months_back in config.yaml, else 1).",
     )
     ap.add_argument(
+        "--since", default=None,
+        help="with --cohort since: fixed anchor date (YYYY-MM-DD, UTC); the "
+             "window starts here and the end advances each month "
+             "(default: cohort.since_date in config.yaml).",
+    )
+    ap.add_argument(
         "--as-of", default=None,
-        help="with --cohort last: reference date used to compute the window "
-             "(default: now, UTC). Format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ. "
-             "Useful for deterministic / backfill runs.",
+        help="reference date used to compute the end of the window (default: now, "
+             "UTC). Format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ. Useful for "
+             "deterministic / backfill runs.",
     )
     args = ap.parse_args()
 
@@ -432,7 +457,8 @@ def main() -> int:
     os.makedirs(args.out_dir, exist_ok=True)
 
     start, end, cohort_meta = _effective_cohort(
-        config, mode=args.cohort, months_back=args.months_back, as_of=args.as_of
+        config, mode=args.cohort, months_back=args.months_back,
+        as_of=args.as_of, since=args.since,
     )
     print(
         f"[collect] cohort window {start.isoformat(timespec='seconds')} .. {end.isoformat(timespec='seconds')} "
