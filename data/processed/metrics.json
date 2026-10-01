@@ -1,14 +1,14 @@
 {
   "meta": {
-    "collected_at": "2026-09-01T09:47:48+00:00",
+    "collected_at": "2026-10-01T09:13:15+00:00",
     "cohort_start": "2026-02-01T00:00:00Z",
-    "cohort_end": "2026-09-01T00:00:00Z",
+    "cohort_end": "2026-10-01T00:00:00Z",
     "cohort_source": "snapshot",
-    "excluded_issues": 385,
-    "excluded_by_creator": 256,
-    "excluded_by_label": 44,
+    "excluded_issues": 438,
+    "excluded_by_creator": 289,
+    "excluded_by_label": 56,
     "excluded_by_repo": 37,
-    "excluded_by_team": 48,
+    "excluded_by_team": 56,
     "excluded_creators": [
       "adguard-bot",
       "adguard-octobuddy[bot]"
@@ -21,20 +21,20 @@
     }
   },
   "summary": {
-    "issues_in_cohort": 964,
-    "ownership_intervals": 999,
-    "completed_intervals": 948,
-    "active_intervals": 51,
-    "handed_off_to_development": 240,
-    "resolved_by_triager": 575,
+    "issues_in_cohort": 1134,
+    "ownership_intervals": 1149,
+    "completed_intervals": 1102,
+    "active_intervals": 47,
+    "handed_off_to_development": 305,
+    "resolved_by_triager": 649,
     "spam_or_invalid": 0,
-    "older_than_72h": 41,
-    "older_than_48h": 43,
-    "excluded_issues": 385,
-    "excluded_by_creator": 256,
-    "excluded_by_label": 44,
+    "older_than_72h": 40,
+    "older_than_48h": 42,
+    "excluded_issues": 438,
+    "excluded_by_creator": 289,
+    "excluded_by_label": 56,
     "excluded_by_repo": 37,
-    "excluded_by_team": 48,
+    "excluded_by_team": 56,
     "months": [
       "2026-02",
       "2026-03",
@@ -42,7 +42,8 @@
       "2026-05",
       "2026-06",
       "2026-07",
-      "2026-08"
+      "2026-08",
+      "2026-09"
     ],
     "sample_buckets": {
       "2026-02": "2026-02",
@@ -51,7 +52,8 @@
       "2026-05": "2026-05",
       "2026-06": "2026-06",
       "2026-07": "2026-07",
-      "2026-08": "2026-08"
+      "2026-08": "2026-08",
+      "2026-09": "2026-09"
     }
   },
   "workload": {
@@ -86,8 +88,8 @@
       "2026-05": {
         "handled": 28,
         "completed": 28,
-        "resolved_by_triager": 16,
-        "handed_off_to_development": 4,
+        "resolved_by_triager": 15,
+        "handed_off_to_development": 5,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
         "handoffs_made": 7
@@ -112,12 +114,21 @@
       },
       "2026-08": {
         "handled": 33,
-        "completed": 22,
-        "resolved_by_triager": 12,
+        "completed": 30,
+        "resolved_by_triager": 20,
         "handed_off_to_development": 6,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
         "handoffs_made": 4
+      },
+      "2026-09": {
+        "handled": 37,
+        "completed": 34,
+        "resolved_by_triager": 21,
+        "handed_off_to_development": 9,
+        "spam_or_invalid": 0,
+        "handoffs_received": 2,
+        "handoffs_made": 3
       }
     },
     "ESurina": {
@@ -176,13 +187,22 @@
         "handoffs_made": 1
       },
       "2026-08": {
-        "handled": 10,
+        "handled": 8,
         "completed": 8,
         "resolved_by_triager": 4,
         "handed_off_to_development": 0,
         "spam_or_invalid": 0,
         "handoffs_received": 1,
-        "handoffs_made": 1
+        "handoffs_made": 0
+      },
+      "2026-09": {
+        "handled": 13,
+        "completed": 6,
+        "resolved_by_triager": 3,
+        "handed_off_to_development": 2,
+        "spam_or_invalid": 0,
+        "handoffs_received": 0,
+        "handoffs_made": 0
       }
     },
     "IaroslavKhvorostenko": {
@@ -196,9 +216,9 @@
         "handoffs_made": 0
       },
       "2026-03": {
-        "handled": 14,
-        "completed": 14,
-        "resolved_by_triager": 6,
+        "handled": 13,
+        "completed": 13,
+        "resolved_by_triager": 5,
         "handed_off_to_development": 8,
         "spam_or_invalid": 0,
         "handoffs_received": 3,
@@ -215,9 +235,9 @@
       },
       "2026-05": {
         "handled": 11,
-        "completed": 10,
+        "completed": 11,
         "resolved_by_triager": 3,
-        "handed_off_to_development": 5,
+        "handed_off_to_development": 6,
         "spam_or_invalid": 0,
         "handoffs_received": 3,
         "handoffs_made": 2
@@ -242,12 +262,21 @@
       },
       "2026-08": {
         "handled": 15,
-        "completed": 12,
-        "resolved_by_triager": 5,
-        "handed_off_to_development": 7,
+        "completed": 15,
+        "resolved_by_triager": 6,
+        "handed_off_to_development": 9,
         "spam_or_invalid": 0,
         "handoffs_received": 1,
         "handoffs_made": 0
+      },
+      "2026-09": {
+        "handled": 20,
+        "completed": 18,
+        "resolved_by_triager": 5,
+        "handed_off_to_development": 10,
+        "spam_or_invalid": 0,
+        "handoffs_received": 1,
+        "handoffs_made": 3
       }
     },
     "KolbasovAnton": {
@@ -289,8 +318,8 @@
       },
       "2026-06": {
         "handled": 17,
-        "completed": 16,
-        "resolved_by_triager": 6,
+        "completed": 17,
+        "resolved_by_triager": 7,
         "handed_off_to_development": 10,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
@@ -298,8 +327,8 @@
       },
       "2026-07": {
         "handled": 14,
-        "completed": 13,
-        "resolved_by_triager": 7,
+        "completed": 14,
+        "resolved_by_triager": 8,
         "handed_off_to_development": 4,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
@@ -313,6 +342,15 @@
         "spam_or_invalid": 0,
         "handoffs_received": 2,
         "handoffs_made": 3
+      },
+      "2026-09": {
+        "handled": 19,
+        "completed": 14,
+        "resolved_by_triager": 7,
+        "handed_off_to_development": 7,
+        "spam_or_invalid": 0,
+        "handoffs_received": 0,
+        "handoffs_made": 0
       }
     },
     "Swen90": {
@@ -363,8 +401,8 @@
       },
       "2026-07": {
         "handled": 5,
-        "completed": 4,
-        "resolved_by_triager": 3,
+        "completed": 5,
+        "resolved_by_triager": 4,
         "handed_off_to_development": 0,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
@@ -372,20 +410,29 @@
       },
       "2026-08": {
         "handled": 8,
-        "completed": 3,
-        "resolved_by_triager": 3,
-        "handed_off_to_development": 0,
+        "completed": 8,
+        "resolved_by_triager": 4,
+        "handed_off_to_development": 3,
         "spam_or_invalid": 0,
         "handoffs_received": 2,
+        "handoffs_made": 0
+      },
+      "2026-09": {
+        "handled": 11,
+        "completed": 10,
+        "resolved_by_triager": 5,
+        "handed_off_to_development": 4,
+        "spam_or_invalid": 0,
+        "handoffs_received": 0,
         "handoffs_made": 0
       }
     },
     "dmitriivqa39": {
       "2026-02": {
-        "handled": 25,
-        "completed": 25,
+        "handled": 24,
+        "completed": 24,
         "resolved_by_triager": 20,
-        "handed_off_to_development": 4,
+        "handed_off_to_development": 3,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
         "handoffs_made": 1
@@ -436,13 +483,22 @@
         "handoffs_made": 1
       },
       "2026-08": {
-        "handled": 29,
-        "completed": 28,
-        "resolved_by_triager": 17,
-        "handed_off_to_development": 10,
+        "handled": 26,
+        "completed": 26,
+        "resolved_by_triager": 14,
+        "handed_off_to_development": 11,
         "spam_or_invalid": 0,
         "handoffs_received": 1,
         "handoffs_made": 1
+      },
+      "2026-09": {
+        "handled": 18,
+        "completed": 17,
+        "resolved_by_triager": 8,
+        "handed_off_to_development": 9,
+        "spam_or_invalid": 0,
+        "handoffs_received": 3,
+        "handoffs_made": 0
       }
     },
     "maxikuzmin": {
@@ -501,13 +557,22 @@
         "handoffs_made": 0
       },
       "2026-08": {
-        "handled": 35,
-        "completed": 30,
-        "resolved_by_triager": 16,
+        "handled": 33,
+        "completed": 31,
+        "resolved_by_triager": 18,
         "handed_off_to_development": 3,
         "spam_or_invalid": 0,
-        "handoffs_received": 2,
+        "handoffs_received": 1,
         "handoffs_made": 2
+      },
+      "2026-09": {
+        "handled": 15,
+        "completed": 9,
+        "resolved_by_triager": 3,
+        "handed_off_to_development": 3,
+        "spam_or_invalid": 0,
+        "handoffs_received": 0,
+        "handoffs_made": 1
       }
     },
     "oksenina": {
@@ -540,8 +605,8 @@
       },
       "2026-05": {
         "handled": 8,
-        "completed": 7,
-        "resolved_by_triager": 2,
+        "completed": 8,
+        "resolved_by_triager": 3,
         "handed_off_to_development": 2,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
@@ -567,12 +632,21 @@
       },
       "2026-08": {
         "handled": 3,
-        "completed": 2,
+        "completed": 3,
         "resolved_by_triager": 0,
         "handed_off_to_development": 0,
         "spam_or_invalid": 0,
         "handoffs_received": 0,
         "handoffs_made": 2
+      },
+      "2026-09": {
+        "handled": 5,
+        "completed": 0,
+        "resolved_by_triager": 0,
+        "handed_off_to_development": 0,
+        "spam_or_invalid": 0,
+        "handoffs_received": 1,
+        "handoffs_made": 0
       }
     },
     "pakifev": {
@@ -632,12 +706,21 @@
       },
       "2026-08": {
         "handled": 23,
-        "completed": 13,
-        "resolved_by_triager": 6,
-        "handed_off_to_development": 6,
+        "completed": 23,
+        "resolved_by_triager": 10,
+        "handed_off_to_development": 12,
         "spam_or_invalid": 0,
         "handoffs_received": 3,
         "handoffs_made": 1
+      },
+      "2026-09": {
+        "handled": 21,
+        "completed": 17,
+        "resolved_by_triager": 7,
+        "handed_off_to_development": 8,
+        "spam_or_invalid": 0,
+        "handoffs_received": 2,
+        "handoffs_made": 2
       }
     }
   },
@@ -665,10 +748,10 @@
         "count": 23
       },
       "2026-05": {
-        "avg_h": 293.066,
-        "median_h": 72.97444444444444,
-        "p75_h": 156.94083333333333,
-        "p90_h": 609.5258333333334,
+        "avg_h": 403.64,
+        "median_h": 88.09375,
+        "p75_h": 296.88444444444445,
+        "p90_h": 1224.26,
         "count": 28
       },
       "2026-06": {
@@ -686,11 +769,18 @@
         "count": 24
       },
       "2026-08": {
-        "avg_h": 102.205,
-        "median_h": 53.99347222222222,
-        "p75_h": 161.92472222222221,
-        "p90_h": 249.60611111111112,
-        "count": 22
+        "avg_h": 227.624,
+        "median_h": 101.09597222222223,
+        "p75_h": 347.45722222222224,
+        "p90_h": 692.4008333333334,
+        "count": 30
+      },
+      "2026-09": {
+        "avg_h": 105.913,
+        "median_h": 46.176249999999996,
+        "p75_h": 93.03333333333333,
+        "p90_h": 341.35055555555556,
+        "count": 34
       }
     },
     "ESurina": {
@@ -737,11 +827,18 @@
         "count": 3
       },
       "2026-08": {
-        "avg_h": 111.148,
-        "median_h": 35.60305555555556,
-        "p75_h": 67.09,
+        "avg_h": 129.538,
+        "median_h": 66.95013888888889,
+        "p75_h": 147.12222222222223,
         "p90_h": 358.73027777777776,
         "count": 8
+      },
+      "2026-09": {
+        "avg_h": 82.979,
+        "median_h": 52.30013888888889,
+        "p75_h": 100.85722222222222,
+        "p90_h": 100.85722222222222,
+        "count": 6
       }
     },
     "IaroslavKhvorostenko": {
@@ -753,11 +850,11 @@
         "count": 7
       },
       "2026-03": {
-        "avg_h": 196.665,
-        "median_h": 24.094722222222224,
-        "p75_h": 80.52833333333334,
-        "p90_h": 166.92333333333335,
-        "count": 14
+        "avg_h": 44.331,
+        "median_h": 18.214444444444446,
+        "p75_h": 77.24888888888889,
+        "p90_h": 138.8086111111111,
+        "count": 13
       },
       "2026-04": {
         "avg_h": 76.93,
@@ -767,11 +864,11 @@
         "count": 22
       },
       "2026-05": {
-        "avg_h": 81.459,
-        "median_h": 38.309305555555554,
+        "avg_h": 83.366,
+        "median_h": 51.28333333333333,
         "p75_h": 97.56027777777778,
         "p90_h": 267.08916666666664,
-        "count": 10
+        "count": 11
       },
       "2026-06": {
         "avg_h": 165.897,
@@ -788,11 +885,18 @@
         "count": 14
       },
       "2026-08": {
-        "avg_h": 56.148,
-        "median_h": 33.30361111111111,
-        "p75_h": 68.02805555555555,
-        "p90_h": 135.14277777777778,
-        "count": 12
+        "avg_h": 67.774,
+        "median_h": 45.30277777777778,
+        "p75_h": 128.91083333333333,
+        "p90_h": 149.82583333333332,
+        "count": 15
+      },
+      "2026-09": {
+        "avg_h": 73.601,
+        "median_h": 55.87986111111111,
+        "p75_h": 125.64555555555556,
+        "p90_h": 158.95083333333332,
+        "count": 18
       }
     },
     "KolbasovAnton": {
@@ -825,18 +929,18 @@
         "count": 16
       },
       "2026-06": {
-        "avg_h": 125.69,
-        "median_h": 28.69736111111111,
-        "p75_h": 195.035,
-        "p90_h": 341.3277777777778,
-        "count": 16
+        "avg_h": 187.511,
+        "median_h": 31.27861111111111,
+        "p75_h": 195.57805555555555,
+        "p90_h": 411.7086111111111,
+        "count": 17
       },
       "2026-07": {
-        "avg_h": 87.698,
-        "median_h": 72.36138888888888,
-        "p75_h": 165.01444444444445,
-        "p90_h": 176.285,
-        "count": 13
+        "avg_h": 158.96,
+        "median_h": 74.70888888888888,
+        "p75_h": 168.12916666666666,
+        "p90_h": 318.21527777777777,
+        "count": 14
       },
       "2026-08": {
         "avg_h": 120.725,
@@ -844,6 +948,13 @@
         "p75_h": 133.3736111111111,
         "p90_h": 258.8702777777778,
         "count": 8
+      },
+      "2026-09": {
+        "avg_h": 125.591,
+        "median_h": 81.27041666666668,
+        "p75_h": 198.605,
+        "p90_h": 285.0152777777778,
+        "count": 14
       }
     },
     "Swen90": {
@@ -883,27 +994,34 @@
         "count": 2
       },
       "2026-07": {
-        "avg_h": 332.609,
-        "median_h": 335.78930555555553,
-        "p75_h": 458.9761111111111,
-        "p90_h": 629.0588888888889,
-        "count": 4
+        "avg_h": 539.332,
+        "median_h": 458.9761111111111,
+        "p75_h": 629.0588888888889,
+        "p90_h": 1366.2258333333334,
+        "count": 5
       },
       "2026-08": {
-        "avg_h": 421.402,
-        "median_h": 498.1386111111111,
+        "avg_h": 322.259,
+        "median_h": 239.74597222222224,
         "p75_h": 498.1386111111111,
         "p90_h": 569.74,
-        "count": 3
+        "count": 8
+      },
+      "2026-09": {
+        "avg_h": 139.021,
+        "median_h": 123.88902777777778,
+        "p75_h": 239.965,
+        "p90_h": 244.62472222222223,
+        "count": 10
       }
     },
     "dmitriivqa39": {
       "2026-02": {
-        "avg_h": 88.991,
-        "median_h": 61.79,
+        "avg_h": 92.69,
+        "median_h": 63.28597222222223,
         "p75_h": 115.40055555555556,
         "p90_h": 274.41,
-        "count": 25
+        "count": 24
       },
       "2026-03": {
         "avg_h": 59.966,
@@ -941,11 +1059,18 @@
         "count": 18
       },
       "2026-08": {
-        "avg_h": 26.073,
+        "avg_h": 29.806,
         "median_h": 1.0369444444444444,
-        "p75_h": 9.421111111111111,
-        "p90_h": 49.80222222222222,
-        "count": 28
+        "p75_h": 41.32416666666666,
+        "p90_h": 61.50222222222222,
+        "count": 26
+      },
+      "2026-09": {
+        "avg_h": 22.418,
+        "median_h": 5.554166666666666,
+        "p75_h": 48.846111111111114,
+        "p90_h": 62.02194444444444,
+        "count": 17
       }
     },
     "maxikuzmin": {
@@ -992,11 +1117,18 @@
         "count": 32
       },
       "2026-08": {
-        "avg_h": 109.671,
-        "median_h": 74.69805555555556,
+        "avg_h": 117.074,
+        "median_h": 82.51194444444444,
         "p75_h": 144.18666666666667,
         "p90_h": 241.35944444444445,
-        "count": 30
+        "count": 31
+      },
+      "2026-09": {
+        "avg_h": 85.314,
+        "median_h": 64.2713888888889,
+        "p75_h": 119.82111111111111,
+        "p90_h": 165.54888888888888,
+        "count": 9
       }
     },
     "oksenina": {
@@ -1022,11 +1154,11 @@
         "count": 19
       },
       "2026-05": {
-        "avg_h": 990.439,
-        "median_h": 504.6747222222222,
-        "p75_h": 839.7588888888889,
-        "p90_h": 2278.8669444444445,
-        "count": 7
+        "avg_h": 1232.873,
+        "median_h": 672.2168055555555,
+        "p75_h": 2278.8669444444445,
+        "p90_h": 2335.4572222222223,
+        "count": 8
       },
       "2026-06": {
         "avg_h": 740.448,
@@ -1043,11 +1175,18 @@
         "count": 3
       },
       "2026-08": {
-        "avg_h": 144.963,
-        "median_h": 144.96277777777777,
-        "p75_h": 289.71555555555557,
+        "avg_h": 137.891,
+        "median_h": 123.74888888888889,
+        "p75_h": 123.74888888888889,
         "p90_h": 289.71555555555557,
-        "count": 2
+        "count": 3
+      },
+      "2026-09": {
+        "avg_h": null,
+        "median_h": null,
+        "p75_h": null,
+        "p90_h": null,
+        "count": 0
       }
     },
     "pakifev": {
@@ -1094,11 +1233,18 @@
         "count": 18
       },
       "2026-08": {
-        "avg_h": 93.246,
-        "median_h": 78.77666666666667,
-        "p75_h": 102.30555555555556,
-        "p90_h": 191.60222222222222,
-        "count": 13
+        "avg_h": 176.806,
+        "median_h": 101.7063888888889,
+        "p75_h": 306.31888888888886,
+        "p90_h": 408.87638888888887,
+        "count": 23
+      },
+      "2026-09": {
+        "avg_h": 95.133,
+        "median_h": 71.27416666666667,
+        "p75_h": 147.95833333333334,
+        "p90_h": 174.77,
+        "count": 17
       }
     }
   },
@@ -1126,11 +1272,11 @@
         "count": 2
       },
       "2026-05": {
-        "avg_h": 437.432,
-        "median_h": 66.42069444444445,
-        "p75_h": 102.85694444444445,
-        "p90_h": 1605.0541666666666,
-        "count": 4
+        "avg_h": 973.743,
+        "median_h": 102.85694444444445,
+        "p75_h": 1605.0541666666666,
+        "p90_h": 3118.99,
+        "count": 5
       },
       "2026-06": {
         "avg_h": 1.331,
@@ -1152,6 +1298,13 @@
         "p75_h": 24.004722222222224,
         "p90_h": 24.004722222222224,
         "count": 6
+      },
+      "2026-09": {
+        "avg_h": 109.767,
+        "median_h": 63.19888888888889,
+        "p75_h": 93.03333333333333,
+        "p90_h": 108.65194444444444,
+        "count": 9
       }
     },
     "ESurina": {
@@ -1203,6 +1356,13 @@
         "p75_h": null,
         "p90_h": null,
         "count": 0
+      },
+      "2026-09": {
+        "avg_h": 42.87,
+        "median_h": 42.87,
+        "p75_h": 57.05,
+        "p90_h": 57.05,
+        "count": 2
       }
     },
     "IaroslavKhvorostenko": {
@@ -1228,11 +1388,11 @@
         "count": 14
       },
       "2026-05": {
-        "avg_h": 36.447,
-        "median_h": 25.335277777777776,
-        "p75_h": 51.28333333333333,
+        "avg_h": 47.445,
+        "median_h": 38.309305555555554,
+        "p75_h": 97.56027777777778,
         "p90_h": 97.56027777777778,
-        "count": 5
+        "count": 6
       },
       "2026-06": {
         "avg_h": 91.217,
@@ -1249,11 +1409,18 @@
         "count": 8
       },
       "2026-08": {
-        "avg_h": 79.094,
+        "avg_h": 83.199,
         "median_h": 68.02805555555555,
-        "p75_h": 128.91083333333333,
-        "p90_h": 135.14277777777778,
-        "count": 7
+        "p75_h": 135.14277777777778,
+        "p90_h": 149.82583333333332,
+        "count": 9
+      },
+      "2026-09": {
+        "avg_h": 46.032,
+        "median_h": 55.87986111111111,
+        "p75_h": 63.950833333333335,
+        "p90_h": 87.2525,
+        "count": 10
       }
     },
     "KolbasovAnton": {
@@ -1305,6 +1472,13 @@
         "p75_h": 258.8702777777778,
         "p90_h": 258.8702777777778,
         "count": 2
+      },
+      "2026-09": {
+        "avg_h": 106.497,
+        "median_h": 27.463055555555556,
+        "p75_h": 27.50583333333333,
+        "p90_h": 222.25083333333333,
+        "count": 7
       }
     },
     "Swen90": {
@@ -1351,20 +1525,27 @@
         "count": 0
       },
       "2026-08": {
-        "avg_h": null,
-        "median_h": null,
-        "p75_h": null,
-        "p90_h": null,
-        "count": 0
+        "avg_h": 191.657,
+        "median_h": 218.55194444444444,
+        "p75_h": 218.55194444444444,
+        "p90_h": 260.94,
+        "count": 3
+      },
+      "2026-09": {
+        "avg_h": 170.224,
+        "median_h": 173.63944444444445,
+        "p75_h": 244.62472222222223,
+        "p90_h": 256.9263888888889,
+        "count": 4
       }
     },
     "dmitriivqa39": {
       "2026-02": {
-        "avg_h": 64.755,
-        "median_h": 71.69777777777777,
+        "avg_h": 86.265,
+        "median_h": 96.95472222222222,
         "p75_h": 96.95472222222222,
         "p90_h": 115.40055555555556,
-        "count": 4
+        "count": 3
       },
       "2026-03": {
         "avg_h": 41.53,
@@ -1402,11 +1583,18 @@
         "count": 8
       },
       "2026-08": {
-        "avg_h": 18.339,
-        "median_h": 0.9390277777777778,
+        "avg_h": 22.263,
+        "median_h": 1.4716666666666667,
         "p75_h": 7.5808333333333335,
         "p90_h": 65.10444444444444,
-        "count": 10
+        "count": 11
+      },
+      "2026-09": {
+        "avg_h": 15.943,
+        "median_h": 0.6675,
+        "p75_h": 5.92,
+        "p90_h": 62.02194444444444,
+        "count": 9
       }
     },
     "maxikuzmin": {
@@ -1457,6 +1645,13 @@
         "median_h": 115.12833333333333,
         "p75_h": 115.12833333333333,
         "p90_h": 241.35944444444445,
+        "count": 3
+      },
+      "2026-09": {
+        "avg_h": 40.088,
+        "median_h": 44.58722222222222,
+        "p75_h": 44.58722222222222,
+        "p90_h": 64.2713888888889,
         "count": 3
       }
     },
@@ -1509,6 +1704,13 @@
         "p75_h": null,
         "p90_h": null,
         "count": 0
+      },
+      "2026-09": {
+        "avg_h": null,
+        "median_h": null,
+        "p75_h": null,
+        "p90_h": null,
+        "count": 0
       }
     },
     "pakifev": {
@@ -1555,45 +1757,52 @@
         "count": 4
       },
       "2026-08": {
-        "avg_h": 62.056,
-        "median_h": 61.31180555555556,
-        "p75_h": 99.91444444444444,
-        "p90_h": 99.91444444444444,
-        "count": 6
+        "avg_h": 122.014,
+        "median_h": 99.20819444444444,
+        "p75_h": 144.1677777777778,
+        "p90_h": 306.31888888888886,
+        "count": 12
+      },
+      "2026-09": {
+        "avg_h": 108.957,
+        "median_h": 99.42222222222223,
+        "p75_h": 170.22583333333333,
+        "p90_h": 174.77,
+        "count": 8
       }
     }
   },
   "dev_handoff_from_first_assignment": {
-    "avg_h": 185.831,
-    "median_h": 34.77180555555555,
-    "p75_h": 125.48416666666667,
-    "p90_h": 432.5463888888889,
-    "count": 240
+    "avg_h": 186.803,
+    "median_h": 46.47472222222222,
+    "p75_h": 127.11972222222222,
+    "p90_h": 416.6377777777778,
+    "count": 305
   },
   "outcomes": {
-    "handed_off_to_development": 240,
-    "handoff_to_triage": 61,
-    "resolved_by_triager": 575,
-    "unassigned": 72,
-    "still_active": 51
+    "handed_off_to_development": 305,
+    "handoff_to_triage": 69,
+    "resolved_by_triager": 649,
+    "still_active": 47,
+    "unassigned": 79
   },
   "aging": {
     "by_triager": {
-      "maxikuzmin": 6,
-      "IaroslavKhvorostenko": 4,
       "dmitriivqa39": 1,
-      "Swen90": 7,
-      "oksenina": 7,
-      "ESurina": 2,
-      "AlexandrPkhm": 12,
-      "KolbasovAnton": 2,
-      "pakifev": 10
+      "IaroslavKhvorostenko": 2,
+      "maxikuzmin": 9,
+      "KolbasovAnton": 5,
+      "Swen90": 2,
+      "oksenina": 10,
+      "ESurina": 7,
+      "AlexandrPkhm": 7,
+      "pakifev": 4
     },
     "by_age_bucket": {
-      "<24h": 1,
-      "24-48h": 7,
+      "<24h": 3,
+      "24-48h": 2,
       "48-72h": 2,
-      "72h+": 41
+      "72h+": 40
     }
   }
 }

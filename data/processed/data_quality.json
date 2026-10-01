@@ -1,5 +1,35 @@
 [
   {
+    "repository": "AdguardTeam/AdGuardMiniForMac",
+    "issue_number": 1211,
+    "issue_url": "https://github.com/AdguardTeam/AdGuardMiniForMac/issues/1211",
+    "issue_title": "Add System-wide protection",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdGuardMiniForMac",
+    "issue_number": 1212,
+    "issue_url": "https://github.com/AdguardTeam/AdGuardMiniForMac/issues/1212",
+    "issue_title": "Switch AdGuard Mini UI to WebView to improve performance",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdGuardMiniForMac",
+    "issue_number": 1214,
+    "issue_url": "https://github.com/AdguardTeam/AdGuardMiniForMac/pull/1214",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
     "repository": "AdguardTeam/AdGuardVPNExtension",
     "issue_number": 243,
     "issue_url": "https://github.com/AdguardTeam/AdGuardVPNExtension/issues/243",
@@ -7,7 +37,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdGuardVPNExtension",
@@ -17,7 +47,17 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdGuardVPNForWindows",
+    "issue_number": 1236,
+    "issue_url": "https://github.com/AdguardTeam/AdGuardVPNForWindows/issues/1236",
+    "issue_title": "App path tooltip in Statistics overflows the window and gets cut off",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardAssistant",
@@ -27,7 +67,17 @@
     "interval_id": null,
     "category": "non_triage_to_triage",
     "detail": "issue passed from non-triage assignee 'windwak3r' to triager 'dmitriivqa39'",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardAssistant",
+    "issue_number": 461,
+    "issue_url": "https://github.com/AdguardTeam/AdguardAssistant/pull/461",
+    "issue_title": "docs: fix 10 typos and grammar errors in comments and documentation",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -37,7 +87,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -47,7 +97,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -57,7 +107,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -67,7 +117,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -77,7 +127,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -87,7 +137,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -97,7 +147,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardBrowserExtension",
@@ -107,7 +157,17 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardBrowserExtension",
+    "issue_number": 3633,
+    "issue_url": "https://github.com/AdguardTeam/AdguardBrowserExtension/pull/3633",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForAndroid",
@@ -117,7 +177,17 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForAndroid",
+    "issue_number": 6216,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForAndroid/pull/6216",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForMac",
@@ -127,7 +197,157 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1757,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1757",
+    "issue_title": "[internal test] close comment 1.4 (20260909-154900)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1758,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1758",
+    "issue_title": "[internal test] close comment 1.4 (20260909-155318)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1759,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1759",
+    "issue_title": "[internal test] close comment 1.1 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1760,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1760",
+    "issue_title": "[internal test] close comment 1.2 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1761,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1761",
+    "issue_title": "[internal test] close comment 1.3 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1762,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1762",
+    "issue_title": "[internal test] close comment 1.5 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1763,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1763",
+    "issue_title": "[internal test] close comment 1.6 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1764,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1764",
+    "issue_title": "[internal test] close comment 1.7 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1765,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1765",
+    "issue_title": "[internal test] close comment 1.8 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1766,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1766",
+    "issue_title": "[internal test] close comment 1.9 (20260909-155450)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1767,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1767",
+    "issue_title": "[internal test] close comment 1.4b (20260909-161138)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1768,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1768",
+    "issue_title": "[internal test] close comment 1.5b (20260909-161458)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1769,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1769",
+    "issue_title": "[internal test] close comment 1.9 (20260909-161615)",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1778,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/pull/1778",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForMac",
+    "issue_number": 1783,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForMac/issues/1783",
+    "issue_title": "Add a privileged helper tool for silent/automatic app updates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -137,7 +357,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -147,7 +367,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -157,7 +377,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -167,7 +387,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -177,7 +397,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForWindows",
@@ -187,7 +407,27 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForWindows",
+    "issue_number": 6219,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/issues/6219",
+    "issue_title": "AdGuard for Windows 8.0.5570 with SockFilter network driver breaks AmneziaVPN (WireGuard/AmneziaWG) \u2014 WSAEFAULT on WSASendMsg / WSARecvMsg",
+    "interval_id": null,
+    "category": "non_triage_to_triage",
+    "detail": "issue passed from non-triage assignee 'zzebrum' to triager 'AlexandrPkhm'",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForWindows",
+    "issue_number": 6228,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForWindows/pull/6228",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForiOS",
@@ -197,7 +437,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForiOS",
@@ -207,7 +447,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/AdguardForiOS",
@@ -217,7 +457,17 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/AdguardForiOS",
+    "issue_number": 2554,
+    "issue_url": "https://github.com/AdguardTeam/AdguardForiOS/pull/2554",
+    "issue_title": "Update README and templates",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/BrowserAssistant",
@@ -227,7 +477,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -237,7 +487,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -247,7 +497,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -257,7 +507,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -267,7 +517,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -277,7 +527,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "AdguardTeam/ContentBlocker",
@@ -287,7 +537,27 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/ContentBlocker",
+    "issue_number": 598,
+    "issue_url": "https://github.com/AdguardTeam/ContentBlocker/pull/598",
+    "issue_title": "Update README",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "AdguardTeam/PopupBlocker",
+    "issue_number": 353,
+    "issue_url": "https://github.com/AdguardTeam/PopupBlocker/pull/353",
+    "issue_title": "docs: fix 7 typos in comments and log messages",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -297,7 +567,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -307,7 +577,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -317,7 +587,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -327,7 +597,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -337,7 +607,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -347,7 +617,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -357,7 +627,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -367,7 +637,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -377,7 +647,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -387,7 +657,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -397,7 +667,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -407,7 +677,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -417,7 +687,7 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   },
   {
     "repository": "TrustTunnel/TrustTunnelFlutterClient",
@@ -427,6 +697,16 @@
     "interval_id": null,
     "category": "no_triage_interval",
     "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
-    "data_collected_at": "2026-09-01T09:47:48+00:00"
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
+  },
+  {
+    "repository": "TrustTunnel/TrustTunnelFlutterClient",
+    "issue_number": 78,
+    "issue_url": "https://github.com/TrustTunnel/TrustTunnelFlutterClient/pull/78",
+    "issue_title": "Fix Back handling for dropdown menus",
+    "interval_id": null,
+    "category": "no_triage_interval",
+    "detail": "cohort issue has no triage ownership interval (never assigned to a triage team member)",
+    "data_collected_at": "2026-10-01T09:13:15+00:00"
   }
 ]
